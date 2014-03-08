@@ -1,0 +1,298 @@
+class ZCL_ITAB definition
+  public
+  create public .
+
+public section.
+
+  class-data C_MAX type CHAR3 read-only value 'MAX'. "#EC NOTEXT . " .
+  class-data C_MIN type CHAR3 read-only value 'MIN'. "#EC NOTEXT . " .
+  class-data C_AVG type CHAR3 read-only value 'AVG'. "#EC NOTEXT . " .
+
+  class-methods GET_MAX_LINE
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_LINE type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_MIN_LINE
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_LINE type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_MAX_VAL
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_VAL type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_MIN_VAL
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_VAL type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_AVG_VAL
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_VAL type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+protected section.
+
+  class-methods PROCESS_OPERATION
+    importing
+      value(I_TABLE) type TABLE
+      !I_COLUMN type NAME_FELD
+      !I_OPER type CHAR3
+    exporting
+      value(E_LINE) type ANY
+      value(E_VAL) type ANY .
+private section.
+ENDCLASS.
+
+
+
+CLASS ZCL_ITAB IMPLEMENTATION.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_ITAB=>GET_AVG_VAL
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_TABLE                        TYPE        TABLE
+* | [--->] I_COLUMN                       TYPE        NAME_FELD
+* | [<---] E_VAL                          TYPE        ANY
+* | [!CX!] CX_SY_CONVERSION_NO_NUMBER
+* | [!CX!] CX_SY_MOVE_CAST_ERROR
+* | [!CX!] CX_SY_DYN_TABLE_ILL_COMP_VAL
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+METHOD get_avg_val.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the average value of a certain field
+**********************************************************************
+
+  CALL METHOD zcl_itab=>process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_avg
+    IMPORTING
+*     e_line   = e_line
+      e_val    = e_val.
+
+ENDMETHOD.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_ITAB=>GET_MAX_LINE
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_TABLE                        TYPE        TABLE
+* | [--->] I_COLUMN                       TYPE        NAME_FELD
+* | [<---] E_LINE                         TYPE        ANY
+* | [!CX!] CX_SY_CONVERSION_NO_NUMBER
+* | [!CX!] CX_SY_MOVE_CAST_ERROR
+* | [!CX!] CX_SY_DYN_TABLE_ILL_COMP_VAL
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+METHOD get_max_line.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the line with the maximum value of a certain field
+**********************************************************************
+
+  CALL METHOD zcl_itab=>process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_max
+    IMPORTING
+      e_line   = e_line
+*     e_value  =
+    .
+
+ENDMETHOD.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_ITAB=>GET_MAX_VAL
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_TABLE                        TYPE        TABLE
+* | [--->] I_COLUMN                       TYPE        NAME_FELD
+* | [<---] E_VAL                          TYPE        ANY
+* | [!CX!] CX_SY_CONVERSION_NO_NUMBER
+* | [!CX!] CX_SY_MOVE_CAST_ERROR
+* | [!CX!] CX_SY_DYN_TABLE_ILL_COMP_VAL
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+METHOD get_max_val.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the maximum value of a certain field
+**********************************************************************
+
+      CALL METHOD zcl_itab=>process_operation
+        EXPORTING
+          i_table  = i_table
+          i_column = i_column
+          i_oper   = c_max
+        IMPORTING
+*         e_line   = e_line
+          e_val    = e_val.
+
+ENDMETHOD.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_ITAB=>GET_MIN_LINE
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_TABLE                        TYPE        TABLE
+* | [--->] I_COLUMN                       TYPE        NAME_FELD
+* | [<---] E_LINE                         TYPE        ANY
+* | [!CX!] CX_SY_CONVERSION_NO_NUMBER
+* | [!CX!] CX_SY_MOVE_CAST_ERROR
+* | [!CX!] CX_SY_DYN_TABLE_ILL_COMP_VAL
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+METHOD get_min_line.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the line with the minimum value of a certain field
+**********************************************************************
+
+  CALL METHOD zcl_itab=>process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_min
+    IMPORTING
+      e_line   = e_line
+*     e_value  =
+    .
+
+ENDMETHOD.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_ITAB=>GET_MIN_VAL
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_TABLE                        TYPE        TABLE
+* | [--->] I_COLUMN                       TYPE        NAME_FELD
+* | [<---] E_VAL                          TYPE        ANY
+* | [!CX!] CX_SY_CONVERSION_NO_NUMBER
+* | [!CX!] CX_SY_MOVE_CAST_ERROR
+* | [!CX!] CX_SY_DYN_TABLE_ILL_COMP_VAL
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+METHOD get_min_val.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the minimum value of a certain field
+**********************************************************************
+
+  CALL METHOD zcl_itab=>process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_min
+    IMPORTING
+*     e_line   = e_line
+      e_val    = e_val.
+
+ENDMETHOD.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Protected Method ZCL_ITAB=>PROCESS_OPERATION
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_TABLE                        TYPE        TABLE
+* | [--->] I_COLUMN                       TYPE        NAME_FELD
+* | [--->] I_OPER                         TYPE        CHAR3
+* | [<---] E_LINE                         TYPE        ANY
+* | [<---] E_VAL                          TYPE        ANY
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+METHOD process_operation.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Logic for max/min/avg calculation
+**********************************************************************
+
+  FIELD-SYMBOLS:
+        <lf_table> TYPE STANDARD TABLE,
+        <lf_line> TYPE any,
+        <lf_field> TYPE any.
+
+  DATA:
+        lv_col    TYPE name_feld,
+        lt_otab   TYPE abap_sortorder_tab,
+        ls_otab   LIKE LINE OF lt_otab.
+
+  "Make sure the field is in upper case
+  lv_col = i_column.
+  TRANSLATE lv_col TO UPPER CASE.
+
+  "Let's make sure there's something to read?
+  IF lines( i_table ) = 0.
+    RAISE EXCEPTION TYPE cx_list_error_empty_list.
+  ENDIF.
+
+  CASE i_oper.
+    WHEN c_max OR c_min.
+
+      "Set up sort order table
+      ls_otab-name = lv_col.
+      IF i_oper = c_max.
+        ls_otab-descending = 'X'.
+      ELSEIF i_oper = c_min.
+        ls_otab-descending = space.
+      ENDIF.
+      APPEND ls_otab TO lt_otab.
+
+      "Sort the table
+      ASSIGN i_table TO <lf_table>.
+      SORT <lf_table> BY (lt_otab).
+
+      "Get the values
+      READ TABLE <lf_table> ASSIGNING <lf_line>
+        INDEX 1.
+      e_line = <lf_line>.
+      ASSIGN COMPONENT lv_col
+        OF STRUCTURE <lf_line> TO <lf_field>.
+      e_val = <lf_field>.
+
+    WHEN c_avg.
+
+      LOOP AT i_table ASSIGNING <lf_line>.
+
+        ASSIGN COMPONENT lv_col
+          OF STRUCTURE <lf_line> TO <lf_field>.
+        IF sy-subrc <> 0.
+          "This should never happen
+          EXIT.
+        ENDIF.
+
+        e_val = e_val + <lf_field>.
+
+      ENDLOOP.
+      e_val = e_val / lines( i_table ).
+
+  ENDCASE.
+
+ENDMETHOD.
+ENDCLASS.

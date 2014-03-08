@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-16"?>
+<CLAS CLSNAME="ZCL_ITAB" VERSION="1" LANGU="E" DESCRIPT="Internal table utilities class" UUID="5301D125ACA303FDE10080000AC9009F" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" AUTHOR="ESPERANCAB" CREATEDON="20140221" CHANGEDON="00000000" CHGDANYON="00000000" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="731" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+ <publicSection>class ZCL_ITAB definition
+  public
+  create public .
+
+public section.
+
+  class-data C_MAX type CHAR3 read-only value &apos;MAX&apos;. &quot;#EC NOTEXT . &quot; .
+  class-data C_MIN type CHAR3 read-only value &apos;MIN&apos;. &quot;#EC NOTEXT . &quot; .
+  class-data C_AVG type CHAR3 read-only value &apos;AVG&apos;. &quot;#EC NOTEXT . &quot; .
+
+  class-methods GET_MAX_LINE
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_LINE type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_MIN_LINE
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_LINE type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_MAX_VAL
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_VAL type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_MIN_VAL
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_VAL type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .
+  class-methods GET_AVG_VAL
+    importing
+      !I_TABLE type TABLE
+      !I_COLUMN type NAME_FELD
+    exporting
+      !E_VAL type ANY
+    raising
+      CX_SY_CONVERSION_NO_NUMBER
+      CX_SY_MOVE_CAST_ERROR
+      CX_SY_DYN_TABLE_ILL_COMP_VAL .</publicSection>
+ <protectedSection>protected section.
+
+  class-methods PROCESS_OPERATION
+    importing
+      value(I_TABLE) type TABLE
+      !I_COLUMN type NAME_FELD
+      !I_OPER type CHAR3
+    exporting
+      value(E_LINE) type ANY
+      value(E_VAL) type ANY .</protectedSection>
+ <privateSection>private section.</privateSection>
+ <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+ <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+ <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+ <textPool/>
+ <classDocumentation/>
+ <attribute CLSNAME="ZCL_ITAB" CMPNAME="C_AVG" VERSION="1" LANGU="E" DESCRIPT="Average" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" ATTDECLTYP="1" ATTRDONLY="X" ATTVALUE="&apos;AVG&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR3" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="731" TYPESRC_LENG="0 "/>
+ <attribute CLSNAME="ZCL_ITAB" CMPNAME="C_MAX" VERSION="1" LANGU="E" DESCRIPT="Maximum" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" ATTDECLTYP="1" ATTRDONLY="X" ATTVALUE="&apos;MAX&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR3" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="731" TYPESRC_LENG="0 "/>
+ <attribute CLSNAME="ZCL_ITAB" CMPNAME="C_MIN" VERSION="1" LANGU="E" DESCRIPT="Minimum" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" ATTDECLTYP="1" ATTRDONLY="X" ATTVALUE="&apos;MIN&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR3" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="731" TYPESRC_LENG="0 "/>
+ <method CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" VERSION="1" LANGU="E" DESCRIPT="Get average value for column" EXPOSURE="2" STATE="1" EDITORDER="6 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" SCONAME="I_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" SCONAME="I_COLUMN" VERSION="1" LANGU="E" DESCRIPT="Field name" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="NAME_FELD"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" SCONAME="E_VAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" SCONAME="CX_SY_CONVERSION_NO_NUMBER" VERSION="1" LANGU="E" DESCRIPT="System Exception Converting to a Number" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" SCONAME="CX_SY_MOVE_CAST_ERROR" VERSION="1" LANGU="E" DESCRIPT="Superclass for All System Exceptions" MTDTYPE="0" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_AVG_VAL" SCONAME="CX_SY_DYN_TABLE_ILL_COMP_VAL" VERSION="1" LANGU="E" DESCRIPT="System Exception for Dynamic Table with Invalid Values" MTDTYPE="0" EDITORDER="3 " AUTHOR="ESPERANCAB" CREATEDON="20140308" CHANGEDON="00000000"/>
+  <source>METHOD get_avg_val.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the average value of a certain field
+**********************************************************************
+
+  CALL METHOD zcl_itab=&gt;process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_avg
+    IMPORTING
+*     e_line   = e_line
+      e_val    = e_val.
+
+ENDMETHOD.</source>
+  <methodDocumentation/>
+ </method>
+ <method CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" VERSION="1" LANGU="E" DESCRIPT="Get line with max value for column" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140221" CHANGEDBY="ESPERANCAB" CHANGEDON="20140224" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" SCONAME="I_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" SCONAME="I_COLUMN" VERSION="1" LANGU="E" DESCRIPT="Field name" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="NAME_FELD"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" SCONAME="E_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" SCONAME="CX_SY_CONVERSION_NO_NUMBER" VERSION="1" LANGU="E" DESCRIPT="System Exception Converting to a Number" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDON="00000000"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" SCONAME="CX_SY_MOVE_CAST_ERROR" VERSION="1" LANGU="E" DESCRIPT="Table structure invalid" MTDTYPE="0" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_LINE" SCONAME="CX_SY_DYN_TABLE_ILL_COMP_VAL" VERSION="1" LANGU="E" DESCRIPT="System Exception for Dynamic Table with Invalid Values" MTDTYPE="0" EDITORDER="3 " AUTHOR="ESPERANCAB" CREATEDON="20140308" CHANGEDON="00000000"/>
+  <source>**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the line with the maximum value of a certain field
+**********************************************************************
+METHOD get_max_line.
+
+  CALL METHOD zcl_itab=&gt;process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_max
+    IMPORTING
+      e_line   = e_line
+*     e_value  =
+    .
+
+ENDMETHOD.</source>
+  <methodDocumentation/>
+ </method>
+ <method CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" VERSION="1" LANGU="E" DESCRIPT="Get max value for column" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDON="00000000" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" SCONAME="I_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" SCONAME="I_COLUMN" VERSION="1" LANGU="E" DESCRIPT="Field name" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="NAME_FELD"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" SCONAME="E_VAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" SCONAME="CX_SY_CONVERSION_NO_NUMBER" VERSION="1" LANGU="E" DESCRIPT="System Exception Converting to a Number" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" SCONAME="CX_SY_MOVE_CAST_ERROR" VERSION="1" LANGU="E" DESCRIPT="Superclass for All System Exceptions" MTDTYPE="0" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MAX_VAL" SCONAME="CX_SY_DYN_TABLE_ILL_COMP_VAL" VERSION="1" LANGU="E" DESCRIPT="System Exception for Dynamic Table with Invalid Values" MTDTYPE="0" EDITORDER="3 " AUTHOR="ESPERANCAB" CREATEDON="20140308" CHANGEDON="00000000"/>
+  <source>METHOD get_max_val.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the maximum value of a certain field
+**********************************************************************
+
+      CALL METHOD zcl_itab=&gt;process_operation
+        EXPORTING
+          i_table  = i_table
+          i_column = i_column
+          i_oper   = c_max
+        IMPORTING
+*         e_line   = e_line
+          e_val    = e_val.
+
+ENDMETHOD.</source>
+  <methodDocumentation/>
+ </method>
+ <method CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" VERSION="1" LANGU="E" DESCRIPT="Get line with min value for column" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDBY="ESPERANCAB" CHANGEDON="20140224" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" SCONAME="I_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" SCONAME="I_COLUMN" VERSION="1" LANGU="E" DESCRIPT="Field name" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="NAME_FELD"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" SCONAME="E_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" SCONAME="CX_SY_CONVERSION_NO_NUMBER" VERSION="1" LANGU="E" DESCRIPT="System Exception Converting to a Number" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" SCONAME="CX_SY_MOVE_CAST_ERROR" VERSION="1" LANGU="E" DESCRIPT="Superclass for All System Exceptions" MTDTYPE="0" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_LINE" SCONAME="CX_SY_DYN_TABLE_ILL_COMP_VAL" VERSION="1" LANGU="E" DESCRIPT="System Exception for Dynamic Table with Invalid Values" MTDTYPE="0" EDITORDER="3 " AUTHOR="ESPERANCAB" CREATEDON="20140308" CHANGEDON="00000000"/>
+  <source>**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the line with the minimum value of a certain field
+**********************************************************************
+METHOD get_min_line.
+
+  CALL METHOD zcl_itab=&gt;process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_min
+    IMPORTING
+      e_line   = e_line
+*     e_value  =
+    .
+
+ENDMETHOD.</source>
+  <methodDocumentation/>
+ </method>
+ <method CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" VERSION="1" LANGU="E" DESCRIPT="Get min value for column" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDBY="ESPERANCAB" CHANGEDON="20140224" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" SCONAME="I_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" SCONAME="I_COLUMN" VERSION="1" LANGU="E" DESCRIPT="Field name" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="NAME_FELD"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" SCONAME="E_VAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" SCONAME="CX_SY_CONVERSION_NO_NUMBER" VERSION="1" LANGU="E" DESCRIPT="System Exception Converting to a Number" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140224" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" SCONAME="CX_SY_MOVE_CAST_ERROR" VERSION="1" LANGU="E" DESCRIPT="Superclass for All System Exceptions" MTDTYPE="0" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDBY="ESPERANCAB" CHANGEDON="20140308"/>
+  <exception CLSNAME="ZCL_ITAB" CMPNAME="GET_MIN_VAL" SCONAME="CX_SY_DYN_TABLE_ILL_COMP_VAL" VERSION="1" LANGU="E" DESCRIPT="System Exception for Dynamic Table with Invalid Values" MTDTYPE="0" EDITORDER="3 " AUTHOR="ESPERANCAB" CREATEDON="20140308" CHANGEDON="00000000"/>
+  <source>METHOD get_min_val.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Get the minimum value of a certain field
+**********************************************************************
+
+  CALL METHOD zcl_itab=&gt;process_operation
+    EXPORTING
+      i_table  = i_table
+      i_column = i_column
+      i_oper   = c_min
+    IMPORTING
+*     e_line   = e_line
+      e_val    = e_val.
+
+ENDMETHOD.</source>
+  <methodDocumentation/>
+ </method>
+ <method CLSNAME="ZCL_ITAB" CMPNAME="PROCESS_OPERATION" VERSION="1" LANGU="E" DESCRIPT="Get either max, min or avg from table" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="PROCESS_OPERATION" SCONAME="I_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="TABLE"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="PROCESS_OPERATION" SCONAME="I_COLUMN" VERSION="1" LANGU="E" DESCRIPT="Field name" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="NAME_FELD"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="PROCESS_OPERATION" SCONAME="I_OPER" VERSION="1" LANGU="E" DESCRIPT="Operation (min/max/avg)" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR3"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="PROCESS_OPERATION" SCONAME="E_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="0" TYPTYPE="1" TYPE="ANY"/>
+  <parameter CLSNAME="ZCL_ITAB" CMPNAME="PROCESS_OPERATION" SCONAME="E_VAL" VERSION="1" LANGU="E" DESCRIPT="Value" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140226" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="0" TYPTYPE="1" TYPE="ANY"/>
+  <source>**********************************************************************
+* Author: Bruno Esperança
+* Description: Logic for max/min/avg calculation
+**********************************************************************
+METHOD process_operation.
+
+  FIELD-SYMBOLS:
+        &lt;lf_table&gt; TYPE STANDARD TABLE,
+        &lt;lf_line&gt; TYPE any,
+        &lt;lf_field&gt; TYPE any.
+
+  DATA:
+        lv_col    TYPE name_feld,
+        lt_otab   TYPE abap_sortorder_tab,
+        ls_otab   LIKE LINE OF lt_otab.
+
+  &quot;Make sure the field is in upper case
+  lv_col = i_column.
+  TRANSLATE lv_col TO UPPER CASE.
+
+  &quot;Let&apos;s make sure there&apos;s something to read?
+  IF lines( i_table ) = 0.
+    RAISE EXCEPTION TYPE cx_list_error_empty_list.
+  ENDIF.
+
+  CASE i_oper.
+    WHEN c_max OR c_min.
+
+      &quot;Set up sort order table
+      ls_otab-name = lv_col.
+      IF i_oper = c_max.
+        ls_otab-descending = &apos;X&apos;.
+      ELSEIF i_oper = c_min.
+        ls_otab-descending = space.
+      ENDIF.
+      APPEND ls_otab TO lt_otab.
+
+      &quot;Sort the table
+      ASSIGN i_table TO &lt;lf_table&gt;.
+      SORT &lt;lf_table&gt; BY (lt_otab).
+
+      &quot;Get the values
+      READ TABLE &lt;lf_table&gt; ASSIGNING &lt;lf_line&gt;
+        INDEX 1.
+      e_line = &lt;lf_line&gt;.
+      ASSIGN COMPONENT lv_col
+        OF STRUCTURE &lt;lf_line&gt; TO &lt;lf_field&gt;.
+      e_val = &lt;lf_field&gt;.
+
+    WHEN c_avg.
+
+      LOOP AT i_table ASSIGNING &lt;lf_line&gt;.
+
+        ASSIGN COMPONENT lv_col
+          OF STRUCTURE &lt;lf_line&gt; TO &lt;lf_field&gt;.
+        IF sy-subrc &lt;&gt; 0.
+          &quot;This should never happen
+          EXIT.
+        ENDIF.
+
+        e_val = e_val + &lt;lf_field&gt;.
+
+      ENDLOOP.
+      e_val = e_val / lines( i_table ).
+
+  ENDCASE.
+
+ENDMETHOD.</source>
+  <methodDocumentation/>
+ </method>
+</CLAS>
