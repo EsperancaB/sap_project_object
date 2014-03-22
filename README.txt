@@ -5,7 +5,7 @@ This project appeared as a suggestion from Matthew Billingham here:
 http://scn.sap.com/people/matthew.billingham/blog/2009/08/21/project-objectify
 
 For comments/questions, feel free to use github's ticketing tools, or this link:
-http://scn.sap.com/community/abap/blog/2014/03/22/project-objectify--continued#comment-474651
+http://scn.sap.com/community/abap/blog/2014/03/22/project-objectify--continued
 
 I was sad to see that know one picked this up, even if this blog post is from 2009.
 And even if I am MILES away from possessing the same technical skills as, for example,
