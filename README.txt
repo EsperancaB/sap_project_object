@@ -1,0 +1,16 @@
+sap_project_object
+==================
+
+This project appeared as a suggestion from Matthew Billingham here:
+http://scn.sap.com/people/matthew.billingham/blog/2009/08/21/project-objectify
+
+I was sad to see that know one picked this up, even if this blog post is from 2009.
+And even if I am MILES away from possessing the same technical skills as, for example,
+Ivan Femia and Gregor Wolf, the creators/maintainers of ABAP2XLSX, I took it to
+myself to try and get this project actually going. Everything has a beginning, I
+am hoping someday this project will get some contributors, hopefully more skilled
+than me, and we might create something that could be helpful as the ABAP2XLSX I
+mentioned above.
+
+Best regards and welcome,
+Bruno
