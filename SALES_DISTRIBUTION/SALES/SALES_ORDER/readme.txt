@@ -1,0 +1,17 @@
+NUGG_SALES_ORDER contains
+
+class ZCL_SALES_ORDER
+
+	static method GET_INSTANCE
+
+		This method returns an instance of ZCL_SALES_ORDER
+
+
+class ZCX_SALES_ORDER
+
+	Exception class for Sales Order related exceptions
+
+
+class ZCX_SALES_ORDER_NOT_FOUND
+
+	Sales Order not found class exception
