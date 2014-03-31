@@ -1,0 +1,168 @@
+*----------------------------------------------------------------------*
+*       CLASS ZCL_BUFFER DEFINITION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS zcl_buffer DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    CLASS-METHODS save_value
+      IMPORTING
+        !i_name TYPE any
+        !i_key TYPE any
+        !i_value TYPE any
+      RAISING
+        zcx_buffer_key_in_buffer .
+    CLASS-METHODS get_value
+      IMPORTING
+        !i_name TYPE any
+        !i_key TYPE any
+      EXPORTING
+        !e_value TYPE any
+      RAISING
+        zcx_buffer_value_not_found .
+    CLASS-METHODS clear_buffer .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+
+    TYPES:
+      BEGIN OF ty_buffer,
+              name  TYPE string,
+              key   TYPE REF TO data,
+              value TYPE REF TO data,
+            END OF ty_buffer .
+    TYPES:
+      ty_it_buffer TYPE SORTED TABLE OF ty_buffer
+              WITH UNIQUE KEY name key.
+
+    CLASS-DATA buffer TYPE ty_it_buffer .
+ENDCLASS.
+
+
+
+CLASS ZCL_BUFFER IMPLEMENTATION.
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_BUFFER=>CLEAR_BUFFER
+* +-------------------------------------------------------------------------------------------------+
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+  METHOD clear_buffer.
+
+    CLEAR buffer.
+
+  ENDMETHOD.                    "clear_buffer
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_BUFFER=>GET_VALUE
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_NAME                         TYPE        ANY
+* | [--->] I_KEY                          TYPE        ANY
+* | [<---] E_VALUE                        TYPE        ANY
+* | [!CX!] ZCX_BUFFER_VALUE_NOT_FOUND
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+  METHOD get_value.
+
+    DATA:
+          buffer_line TYPE ty_buffer.
+
+    FIELD-SYMBOLS:
+          <new_key>        TYPE any,
+          <buffered_key>   TYPE any,
+          <buffered_value>      TYPE any,
+          <buffered_line>  TYPE ty_buffer.
+
+* Name of the variable
+    buffer_line-name = i_name.
+
+* Key
+    CREATE DATA buffer_line-key LIKE i_key.
+    ASSIGN buffer_line-key->* TO <new_key>.
+    IF sy-subrc IS INITIAL.
+      <new_key> = i_key.
+    ENDIF.
+
+* Search for already buffered value
+    LOOP AT buffer ASSIGNING <buffered_line>
+      WHERE name = i_name.
+
+*   Get existing key
+      ASSIGN <buffered_line>-key->* TO <buffered_key>.
+
+      IF <new_key> = <buffered_key>.
+        ASSIGN <buffered_line>-value->* TO <buffered_value>.
+        e_value = <buffered_value>.
+        RETURN.
+      ENDIF.
+
+    ENDLOOP.
+
+    "Value was not found
+    RAISE EXCEPTION TYPE zcx_buffer_value_not_found.
+
+  ENDMETHOD.                    "GET_VALUE
+
+
+* <SIGNATURE>---------------------------------------------------------------------------------------+
+* | Static Public Method ZCL_BUFFER=>SAVE_VALUE
+* +-------------------------------------------------------------------------------------------------+
+* | [--->] I_NAME                         TYPE        ANY
+* | [--->] I_KEY                          TYPE        ANY
+* | [--->] I_VALUE                        TYPE        ANY
+* | [!CX!] ZCX_BUFFER_KEY_IN_BUFFER
+* +--------------------------------------------------------------------------------------</SIGNATURE>
+  METHOD save_value.
+
+    DATA:
+       buffer_line TYPE ty_buffer.
+
+    FIELD-SYMBOLS:
+      <new_key>       TYPE any,
+      <buffered_key>  TYPE any,
+      <new_value>     TYPE any,
+      <buffered_line> TYPE ty_buffer.
+
+    TRY.
+
+        "Check if this value has already been stored
+        CALL METHOD zcl_buffer=>get_value
+          EXPORTING
+            i_name = i_name
+            i_key  = i_key.
+
+      CATCH zcx_buffer_value_not_found.
+
+        "Not found, like we wanted
+
+* Name of the variable
+        buffer_line-name = i_name.
+
+* Key
+        CREATE DATA buffer_line-key LIKE i_key.
+        ASSIGN buffer_line-key->* TO <new_key>.
+        IF sy-subrc IS INITIAL.
+          <new_key> = i_key.
+        ENDIF.
+
+* Insert value into buffer
+        CREATE DATA buffer_line-value LIKE i_value.
+        ASSIGN buffer_line-value->* TO <new_value>.
+        IF sy-subrc IS INITIAL.
+          <new_value> = i_value.
+        ENDIF.
+
+        INSERT buffer_line INTO TABLE buffer.
+
+        RETURN.
+
+    ENDTRY.
+
+    "The key was already in the buffer
+    RAISE EXCEPTION TYPE zcx_buffer_key_in_buffer.
+
+  ENDMETHOD.                    "save_value
+ENDCLASS.

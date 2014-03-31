@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-16"?>
+<nugget name="ZCL_BUFFER">
+ <CLAS CLSNAME="ZCL_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Buffer class" UUID="533824ACC966044BE10080010AC9009F" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" CHGDANYON="00000000" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="731" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <types CLSNAME="ZCL_BUFFER" CMPNAME="TY_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Buffer type" EXPOSURE="0" STATE="1" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" TYPTYPE="4" SRCROW1="4 " SRCCOLUMN1="6 " SRCROW2="8 " SRCCOLUMN2="27 " TYPESRC_LENG="163 " TYPESRC="BEGIN OF ty_buffer,
+              name  TYPE string,
+              key   TYPE REF TO data,
+              value TYPE REF TO data,
+            END OF ty_buffer
+"/>
+  <types CLSNAME="ZCL_BUFFER" CMPNAME="TY_IT_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Buffer internal table" EXPOSURE="0" STATE="1" EDITORDER="2 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="6 " SRCROW2="11 " SRCCOLUMN2="37 " TYPESRC_LENG="85 " TYPESRC="ty_it_buffer TYPE SORTED TABLE OF ty_buffer
+              WITH UNIQUE KEY name key
+"/>
+  <publicSection>*----------------------------------------------------------------------*
+*       CLASS ZCL_BUFFER DEFINITION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS zcl_buffer DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    CLASS-METHODS save_value
+      IMPORTING
+        !i_name TYPE any
+        !i_key TYPE any
+        !i_value TYPE any
+      RAISING
+        zcx_buffer_key_in_buffer .
+    CLASS-METHODS get_value
+      IMPORTING
+        !i_name TYPE any
+        !i_key TYPE any
+      EXPORTING
+        !e_value TYPE any
+      RAISING
+        zcx_buffer_value_not_found .
+    CLASS-METHODS clear_buffer .</publicSection>
+  <protectedSection>PROTECTED SECTION.</protectedSection>
+  <privateSection>PRIVATE SECTION.
+
+    TYPES:
+      BEGIN OF ty_buffer,
+              name  TYPE string,
+              key   TYPE REF TO data,
+              value TYPE REF TO data,
+            END OF ty_buffer .
+    TYPES:
+      ty_it_buffer TYPE SORTED TABLE OF ty_buffer
+              WITH UNIQUE KEY name key.
+
+    CLASS-DATA buffer TYPE ty_it_buffer .</privateSection>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <textPool/>
+  <classDocumentation/>
+  <attribute CLSNAME="ZCL_BUFFER" CMPNAME="BUFFER" VERSION="1" LANGU="E" DESCRIPT="Buffer internal table" EXPOSURE="0" STATE="1" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" ATTDECLTYP="1" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_IT_BUFFER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_BUFFER" CMPNAME="CLEAR_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Clear buffer" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD clear_buffer.
+
+    CLEAR buffer.
+
+  ENDMETHOD.                    &quot;clear_buffer</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BUFFER" CMPNAME="GET_VALUE" VERSION="1" LANGU="E" DESCRIPT="Get value from buffer" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BUFFER" CMPNAME="GET_VALUE" SCONAME="I_NAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BUFFER" CMPNAME="GET_VALUE" SCONAME="I_KEY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BUFFER" CMPNAME="GET_VALUE" SCONAME="E_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <exception CLSNAME="ZCL_BUFFER" CMPNAME="GET_VALUE" SCONAME="ZCX_BUFFER_VALUE_NOT_FOUND" VERSION="1" LANGU="E" DESCRIPT="Value not found in buffer" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331"/>
+   <source>METHOD get_value.
+
+    DATA:
+          buffer_line TYPE ty_buffer.
+
+    FIELD-SYMBOLS:
+          &lt;new_key&gt;        TYPE any,
+          &lt;buffered_key&gt;   TYPE any,
+          &lt;buffered_value&gt;      TYPE any,
+          &lt;buffered_line&gt;  TYPE ty_buffer.
+
+* Name of the variable
+    buffer_line-name = i_name.
+
+* Key
+    CREATE DATA buffer_line-key LIKE i_key.
+    ASSIGN buffer_line-key-&gt;* TO &lt;new_key&gt;.
+    IF sy-subrc IS INITIAL.
+      &lt;new_key&gt; = i_key.
+    ENDIF.
+
+* Search for already buffered value
+    LOOP AT buffer ASSIGNING &lt;buffered_line&gt;
+      WHERE name = i_name.
+
+*   Get existing key
+      ASSIGN &lt;buffered_line&gt;-key-&gt;* TO &lt;buffered_key&gt;.
+
+      IF &lt;new_key&gt; = &lt;buffered_key&gt;.
+        ASSIGN &lt;buffered_line&gt;-value-&gt;* TO &lt;buffered_value&gt;.
+        e_value = &lt;buffered_value&gt;.
+        RETURN.
+      ENDIF.
+
+    ENDLOOP.
+
+    &quot;Value was not found
+    RAISE EXCEPTION TYPE zcx_buffer_value_not_found.
+
+  ENDMETHOD.                    &quot;GET_VALUE</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BUFFER" CMPNAME="SAVE_VALUE" VERSION="1" LANGU="E" DESCRIPT="Save value in buffer" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BUFFER" CMPNAME="SAVE_VALUE" SCONAME="I_NAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BUFFER" CMPNAME="SAVE_VALUE" SCONAME="I_KEY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BUFFER" CMPNAME="SAVE_VALUE" SCONAME="I_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <exception CLSNAME="ZCL_BUFFER" CMPNAME="SAVE_VALUE" SCONAME="ZCX_BUFFER_KEY_IN_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Key already existing in buffer" MTDTYPE="0" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331"/>
+   <source>METHOD save_value.
+
+    DATA:
+       buffer_line TYPE ty_buffer.
+
+    FIELD-SYMBOLS:
+      &lt;new_key&gt;       TYPE any,
+      &lt;buffered_key&gt;  TYPE any,
+      &lt;new_value&gt;     TYPE any,
+      &lt;buffered_line&gt; TYPE ty_buffer.
+
+    TRY.
+
+        &quot;Check if this value has already been stored
+        CALL METHOD zcl_buffer=&gt;get_value
+          EXPORTING
+            i_name = i_name
+            i_key  = i_key.
+
+      CATCH zcx_buffer_value_not_found.
+
+        &quot;Not found, like we wanted
+
+* Name of the variable
+        buffer_line-name = i_name.
+
+* Key
+        CREATE DATA buffer_line-key LIKE i_key.
+        ASSIGN buffer_line-key-&gt;* TO &lt;new_key&gt;.
+        IF sy-subrc IS INITIAL.
+          &lt;new_key&gt; = i_key.
+        ENDIF.
+
+* Insert value into buffer
+        CREATE DATA buffer_line-value LIKE i_value.
+        ASSIGN buffer_line-value-&gt;* TO &lt;new_value&gt;.
+        IF sy-subrc IS INITIAL.
+          &lt;new_value&gt; = i_value.
+        ENDIF.
+
+        INSERT buffer_line INTO TABLE buffer.
+
+        RETURN.
+
+    ENDTRY.
+
+    &quot;The key was already in the buffer
+    RAISE EXCEPTION TYPE zcx_buffer_key_in_buffer.
+
+  ENDMETHOD.                    &quot;save_value</source>
+   <methodDocumentation/>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Error for Buffer class" UUID="53383078C966044BE10080010AC9009F" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="00000000" CHGDANYON="00000000" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="731" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CX_DYNAMIC_CHECK">
+  <publicSection>class ZCX_BUFFER definition
+  public
+  inheriting from CX_DYNAMIC_CHECK
+  create public .
+
+public section.
+
+  constants ZCX_BUFFER type SOTR_CONC value &apos;533830ABC966044BE10080010AC9009F&apos;. &quot;#EC NOTEXT
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional .</publicSection>
+  <protectedSection>protected section.</protectedSection>
+  <privateSection>private section.</privateSection>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <textPool/>
+  <classDocumentation/>
+  <attribute CLSNAME="ZCX_BUFFER" CMPNAME="ZCX_BUFFER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" ATTDECLTYP="2" ATTVALUE="&apos;533830ABC966044BE10080010AC9009F&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" CREA_NAME="ESPERANCAB" CREA_TSTUT="20140331173708" CHAN_NAME="ESPERANCAB" CHAN_TSTUT="20140331173708" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" CREA_NAME="ESPERANCAB" CREA_TSTUT="20140331173708" CHAN_NAME="ESPERANCAB" CHAN_TSTUT="20140331173708" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error in Buffer"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BUFFER" REFCLSNAME="CX_DYNAMIC_CHECK" VERSION="1" STATE="1" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000"/>
+  <method CLSNAME="ZCX_BUFFER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000" MTDTYPE="2" MTDDECLTYP="0" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCX_BUFFER" CMPNAME="CONSTRUCTOR" SCONAME="TEXTID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="TEXTID" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BUFFER" CMPNAME="CONSTRUCTOR" SCONAME="PREVIOUS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="PREVIOUS" PAROPTIONL="X"/>
+   <source>method CONSTRUCTOR.
+CALL METHOD SUPER-&gt;CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+ IF textid IS INITIAL.
+   me-&gt;textid = ZCX_BUFFER .
+ ENDIF.
+endmethod.</source>
+   <methodDocumentation/>
+   <methodDocumentation/>
+   <methodDocumentation/>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_BUFFER_VALUE_NOT_FOUND" VERSION="1" LANGU="E" DESCRIPT="Value not found in buffer" UUID="5338314EC966044BE10080010AC9009F" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000" CHGDANYON="00000000" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="731" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_BUFFER">
+  <publicSection>class ZCX_BUFFER_VALUE_NOT_FOUND definition
+  public
+  inheriting from ZCX_BUFFER
+  final
+  create public .
+
+public section.
+
+  constants ZCX_BUFFER_VALUE_NOT_FOUND type SOTR_CONC value &apos;5338315BC966044BE10080010AC9009F&apos;. &quot;#EC NOTEXT
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional .</publicSection>
+  <protectedSection>protected section.</protectedSection>
+  <privateSection>private section.</privateSection>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <textPool/>
+  <classDocumentation/>
+  <attribute CLSNAME="ZCX_BUFFER_VALUE_NOT_FOUND" CMPNAME="ZCX_BUFFER_VALUE_NOT_FOUND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;5338315BC966044BE10080010AC9009F&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" R3RELEASE="731" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" CREA_NAME="ESPERANCAB" CREA_TSTUT="20140331173831" CHAN_NAME="ESPERANCAB" CHAN_TSTUT="20140331173831" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" CREA_NAME="ESPERANCAB" CREA_TSTUT="20140331173831" CHAN_NAME="ESPERANCAB" CHAN_TSTUT="20140331173831" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Value not found in buffer"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BUFFER_VALUE_NOT_FOUND" REFCLSNAME="ZCX_BUFFER" VERSION="1" STATE="1" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000"/>
+  <method CLSNAME="ZCX_BUFFER_VALUE_NOT_FOUND" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000" MTDTYPE="2" MTDDECLTYP="0" LOCKED="X" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCX_BUFFER_VALUE_NOT_FOUND" CMPNAME="CONSTRUCTOR" SCONAME="TEXTID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="TEXTID" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BUFFER_VALUE_NOT_FOUND" CMPNAME="CONSTRUCTOR" SCONAME="PREVIOUS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="PREVIOUS" PAROPTIONL="X"/>
+   <source>method CONSTRUCTOR.
+CALL METHOD SUPER-&gt;CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+ IF textid IS INITIAL.
+   me-&gt;textid = ZCX_BUFFER_VALUE_NOT_FOUND .
+ ENDIF.
+endmethod.</source>
+   <methodDocumentation/>
+   <methodDocumentation/>
+   <methodDocumentation/>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_BUFFER_KEY_IN_BUFFER" VERSION="1" LANGU="E" DESCRIPT="Key already existing in buffer" UUID="53383232C966044BE10080010AC9009F" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="00000000" CHGDANYON="00000000" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="731" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_BUFFER">
+  <publicSection>class ZCX_BUFFER_KEY_IN_BUFFER definition
+  public
+  inheriting from ZCX_BUFFER
+  final
+  create public .
+
+public section.
+
+  constants ZCX_BUFFER_KEY_IN_BUFFER type SOTR_CONC value &apos;5338325CC966044BE10080010AC9009F&apos;. &quot;#EC NOTEXT
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional .</publicSection>
+  <protectedSection>protected section.</protectedSection>
+  <privateSection>private section.</privateSection>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <textPool/>
+  <classDocumentation/>
+  <attribute CLSNAME="ZCX_BUFFER_KEY_IN_BUFFER" CMPNAME="ZCX_BUFFER_KEY_IN_BUFFER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" ATTDECLTYP="2" ATTVALUE="&apos;5338325CC966044BE10080010AC9009F&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" CREA_NAME="ESPERANCAB" CREA_TSTUT="20140331175902" CHAN_NAME="ESPERANCAB" CHAN_TSTUT="20140331175902" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" CREA_NAME="ESPERANCAB" CREA_TSTUT="20140331175902" CHAN_NAME="ESPERANCAB" CHAN_TSTUT="20140331175902" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Key already existing in buffer"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BUFFER_KEY_IN_BUFFER" REFCLSNAME="ZCX_BUFFER" VERSION="1" STATE="1" AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000"/>
+  <method CLSNAME="ZCX_BUFFER_KEY_IN_BUFFER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDON="00000000" MTDTYPE="2" MTDDECLTYP="0" R3RELEASE="731" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCX_BUFFER_KEY_IN_BUFFER" CMPNAME="CONSTRUCTOR" SCONAME="TEXTID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="TEXTID" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BUFFER_KEY_IN_BUFFER" CMPNAME="CONSTRUCTOR" SCONAME="PREVIOUS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " AUTHOR="ESPERANCAB" CREATEDON="20140331" CHANGEDBY="ESPERANCAB" CHANGEDON="20140331" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="PREVIOUS" PAROPTIONL="X"/>
+   <source>method CONSTRUCTOR.
+CALL METHOD SUPER-&gt;CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+ IF textid IS INITIAL.
+   me-&gt;textid = ZCX_BUFFER_KEY_IN_BUFFER .
+ ENDIF.
+endmethod.</source>
+   <methodDocumentation/>
+   <methodDocumentation/>
+   <methodDocumentation/>
+  </method>
+ </CLAS>
+</nugget>
