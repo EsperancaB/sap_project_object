@@ -15,5 +15,10 @@ am hoping someday this project will get some contributors, hopefully more skille
 than me, and we might create something that could be helpful as the ABAP2XLSX I
 mentioned above.
 
+If you want to contribute, please try to follow general ABAP objects guidelines provided here:
+http://help.sap.com/saphelp_nw73ehp1/helpdata/en/92/c2b084bc1d11d2958700a0c94260a5/content.htm?frameset=/en/ca/c035baa6c611d1b4790000e8a52bed/frameset.htm
+
+Thank you!
+
 Best regards and welcome,
 Bruno
