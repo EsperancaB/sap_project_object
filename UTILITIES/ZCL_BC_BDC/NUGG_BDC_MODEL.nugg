@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-16"?>
+<nugget name="BDC_MODEL">
+ <CLAS CLSNAME="ZCX_BATCH_INPUT_ERROR" VERSION="1" LANGU="E" DESCRIPT="Batch Input Processing Error" UUID="536128DE4CF11650E10080000AD00C21" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDON="00000000" CHGDANYON="00000000" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="702" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CX_DYNAMIC_CHECK">
+  <publicSection>class ZCX_BATCH_INPUT_ERROR definition
+  public
+  inheriting from CX_DYNAMIC_CHECK
+  final
+  create public .
+
+public section.
+*&quot;* public components of class ZCX_BATCH_INPUT_ERROR
+*&quot;* do not include other source files here!!!
+
+  constants ZCX_BATCH_INPUT_ERROR type SOTR_CONC value &apos;5361291C4CF11650E10080000AD00C21&apos;. &quot;#EC NOTEXT
+  data MSGTY type SY-MSGTY .
+  data MSG type STRING .
+  data MSGID type SY-MSGID .
+  data MSGNO type SY-MSGNO .
+  data MSGV1 type SY-MSGV1 .
+  data MSGV2 type SY-MSGV2 .
+  data MSGV3 type SY-MSGV3 .
+  data MSGV4 type SY-MSGV4 .
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional
+      !MSGTY type SY-MSGTY optional
+      !MSG type STRING optional
+      !MSGID type SY-MSGID optional
+      !MSGNO type SY-MSGNO optional
+      !MSGV1 type SY-MSGV1 optional
+      !MSGV2 type SY-MSGV2 optional
+      !MSGV3 type SY-MSGV3 optional
+      !MSGV4 type SY-MSGV4 optional .</publicSection>
+  <protectedSection>protected section.
+*&quot;* protected components of class ZCX_BATCH_INPUT_ERROR
+*&quot;* do not include other source files here!!!</protectedSection>
+  <privateSection>private section.
+*&quot;* private components of class ZCX_BATCH_INPUT_ERROR
+*&quot;* do not include other source files here!!!</privateSection>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <textPool/>
+  <classDocumentation/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSG" VERSION="1" LANGU="E" DESCRIPT="Error Message" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGID" VERSION="1" LANGU="E" DESCRIPT="Message Class" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGNO" VERSION="1" LANGU="E" DESCRIPT="Message Number" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGNO" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGTY" VERSION="1" LANGU="E" DESCRIPT="Message Type" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGTY" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGV1" VERSION="1" LANGU="E" DESCRIPT="Message Variable" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGV1" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGV2" VERSION="1" LANGU="E" DESCRIPT="Message Variable" EXPOSURE="2" STATE="1" EDITORDER="7 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGV2" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGV3" VERSION="1" LANGU="E" DESCRIPT="Message Variable" EXPOSURE="2" STATE="1" EDITORDER="8 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGV3" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="MSGV4" VERSION="1" LANGU="E" DESCRIPT="Message Variable" EXPOSURE="2" STATE="1" EDITORDER="9 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-MSGV4" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="ZCX_BATCH_INPUT_ERROR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;5361291C4CF11650E10080000AD00C21&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" R3RELEASE="702" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" CREA_NAME="ENGSWEEY" CREA_TSTUT="20140502023829" CHAN_NAME="ENGSWEEY" CHAN_TSTUT="20140502023829" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" CREA_NAME="ENGSWEEY" CREA_TSTUT="20140502023829" CHAN_NAME="ENGSWEEY" CHAN_TSTUT="20140502023829" STATUS="R" VERSION="0002" LENGTH="255" TEXT="&apos;&amp;MSG&amp;&apos;"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BATCH_INPUT_ERROR" REFCLSNAME="CX_DYNAMIC_CHECK" VERSION="1" STATE="1" AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDON="00000000"/>
+  <method CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDON="00000000" MTDTYPE="2" MTDDECLTYP="0" LOCKED="X" R3RELEASE="702" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="TEXTID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="TEXTID" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="PREVIOUS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="0" TYPE="PREVIOUS" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGTY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="3 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGTY" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSG" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="4 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="STRING" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="5 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGID" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGNO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="6 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGNO" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGV1" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="7 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGV1" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGV2" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="8 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGV2" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGV3" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="9 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGV3" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCX_BATCH_INPUT_ERROR" CMPNAME="CONSTRUCTOR" SCONAME="MSGV4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="10 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140502" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-MSGV4" PAROPTIONL="X"/>
+   <source>method CONSTRUCTOR.
+CALL METHOD SUPER-&gt;CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+ IF textid IS INITIAL.
+   me-&gt;textid = ZCX_BATCH_INPUT_ERROR .
+ ENDIF.
+me-&gt;MSGTY = MSGTY .
+me-&gt;MSG = MSG .
+me-&gt;MSGID = MSGID .
+me-&gt;MSGNO = MSGNO .
+me-&gt;MSGV1 = MSGV1 .
+me-&gt;MSGV2 = MSGV2 .
+me-&gt;MSGV3 = MSGV3 .
+me-&gt;MSGV4 = MSGV4 .
+endmethod.</source>
+   <methodDocumentation/>
+   <methodDocumentation/>
+   <methodDocumentation/>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_BC_BDC" VERSION="1" LANGU="E" DESCRIPT="OO Model of BDC processing - Singleton" UUID="534E8AC1205E0B70E10080000AD00C21" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" AUTHOR="EYEOH" CREATEDON="20081120" CHANGEDBY="ENGSWEEY" CHANGEDON="20140417" CHGDANYON="00000000" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="702" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <publicSection>class ZCL_BC_BDC definition
+  public
+  final
+  create private .
+
+public section.
+*&quot;* public components of class ZCL_BC_BDC
+*&quot;* do not include other source files here!!!
+
+  constants CO_MSG_TYPE_INFO type C value &apos;I&apos;. &quot;#EC NOTEXT
+  constants CO_MSG_TYPE_SUCCESS type C value &apos;S&apos;. &quot;#EC NOTEXT
+  constants CO_MSG_TYPE_ERROR type C value &apos;E&apos;. &quot;#EC NOTEXT
+  constants CO_MSG_TYPE_WARNING type C value &apos;W&apos;. &quot;#EC NOTEXT
+  constants CO_MSG_TYPE_ABEND type C value &apos;A&apos;. &quot;#EC NOTEXT
+
+  class-methods S_INSTANTIATE
+    importing
+      !IM_BDC_TYPE type C
+      !IM_TCODE type TCODE
+      !IM_BDC_MODE type C default &apos;N&apos;
+      !IM_UPD_MODE type C default &apos;S&apos;
+      !IM_GROUP type APQI-GROUPID optional
+      !IM_USER type APQI-USERID default SY-UNAME
+      !IM_KEEP type APQI-QERASE optional
+      !IM_HOLDDATE type APQI-STARTDATE optional
+    returning
+      value(RE_BDC) type ref to ZCL_BC_BDC .
+  class-methods S_FREE_INSTANCE .
+  methods ADD_FIELD
+    importing
+      !IM_FLD type ANY
+      !IM_VAL type ANY
+      !IM_CONV type CHAR1 optional .
+  methods ADD_SCREEN
+    importing
+      !IM_REPID type ANY
+      !IM_DYNNR type ANY .
+  methods PROCESS
+    exporting
+      !EX_SUBRC type SY-SUBRC
+      !EX_MESSAGES type TAB_BDCMSGCOLL
+    raising
+      ZCX_BATCH_INPUT_ERROR .
+  methods CLEAR_BDC_DATA .
+*&quot;* protected components of class ZCL_BC_BDC
+*&quot;* do not include other source files here!!!</publicSection>
+  <protectedSection>*&quot;* protected components of class ZCL_BC_BDC
+*&quot;* do not include other source files here!!!
+protected section.</protectedSection>
+  <privateSection>private section.
+*&quot;* private components of class ZCL_BC_BDC
+*&quot;* do not include other source files here!!!
+
+  class-data BDC type ref to ZCL_BC_BDC .
+  data BDCDATA type BDCDATA_TAB .
+  data BDC_TYPE type CHAR2 .
+  data TCODE type TCODE .
+  data CT_BDC_MODE type C .
+  data CT_UPD_MODE type C .
+  data BI_GROUP type APQI-GROUPID .
+  data BI_USER type APQI-USERID .
+  data BI_KEEP type APQI-QERASE .
+  data BI_HOLDDATE type APQI-STARTDATE .
+
+  methods CONSTRUCTOR
+    importing
+      !IM_BDC_TYPE type C
+      !IM_TCODE type TCODE
+      !IM_BDC_MODE type C
+      !IM_UPD_MODE type C
+      !IM_GROUP type APQI-GROUPID
+      !IM_USER type APQI-USERID
+      !IM_KEEP type APQI-QERASE
+      !IM_HOLDDATE type APQI-STARTDATE .
+  methods CALL_TRANSACTION
+    exporting
+      !EX_SUBRC type SY-SUBRC
+      !EX_MESSAGES type TAB_BDCMSGCOLL .
+  methods CREATE_BATCH_INPUT_SESS
+    raising
+      ZCX_BATCH_INPUT_ERROR .</privateSection>
+  <localImplementation>*&quot;* local class implementation for public class
+*&quot;* use this source file for the implementation part of
+*&quot;* local helper classes</localImplementation>
+  <localTypes>*&quot;* use this source file for any type declarations (class
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* implementation or private method&apos;s signature</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <textPool/>
+  <classDocumentation/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BDC" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="1" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_BC_BDC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BDCDATA" VERSION="1" LANGU="E" DESCRIPT="Table Type for BDCDATA" EXPOSURE="0" STATE="1" EDITORDER="2 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="BDCDATA_TAB" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BDC_TYPE" VERSION="1" LANGU="E" DESCRIPT="CT - Call Transaction, BI - Batch Input" EXPOSURE="0" STATE="1" EDITORDER="3 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR2" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BI_GROUP" VERSION="1" LANGU="E" DESCRIPT="Session name" EXPOSURE="0" STATE="1" EDITORDER="7 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="APQI-GROUPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BI_HOLDDATE" VERSION="1" LANGU="E" DESCRIPT="Session locked until specified date" EXPOSURE="0" STATE="1" EDITORDER="10 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="APQI-STARTDATE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BI_KEEP" VERSION="1" LANGU="E" DESCRIPT="Indicator to keep processed sessions" EXPOSURE="0" STATE="1" EDITORDER="9 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="APQI-QERASE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="BI_USER" VERSION="1" LANGU="E" DESCRIPT="Batch input user" EXPOSURE="0" STATE="1" EDITORDER="8 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="APQI-USERID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CO_MSG_TYPE_ABEND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;A&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CO_MSG_TYPE_ERROR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;E&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CO_MSG_TYPE_INFO" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;I&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CO_MSG_TYPE_SUCCESS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;S&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CO_MSG_TYPE_WARNING" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" ATTDECLTYP="2" ATTVALUE="&apos;W&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " R3RELEASE="702" TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CT_BDC_MODE" VERSION="1" LANGU="E" DESCRIPT="BDC Processing Mode - A, E, N, P" EXPOSURE="0" STATE="1" EDITORDER="5 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="CT_UPD_MODE" VERSION="1" LANGU="E" DESCRIPT="BDC Update Mode - A, S, L" EXPOSURE="0" STATE="1" EDITORDER="6 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="C" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_BC_BDC" CMPNAME="TCODE" VERSION="1" LANGU="E" DESCRIPT="Transaction Code" EXPOSURE="0" STATE="1" EDITORDER="4 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TCODE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_FIELD" VERSION="1" LANGU="E" DESCRIPT="Add field to BDC table" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140417" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_FIELD" SCONAME="IM_FLD" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_FIELD" SCONAME="IM_VAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_FIELD" SCONAME="IM_CONV" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR1" PAROPTIONL="X"/>
+   <source>METHOD add_field.
+*----------------------------------------------------------------------*
+*       Insert field in BDC screen
+*
+* Additional functionality if IV_CONV is populated as below:-
+*  D - Convert date from YYYYMMDD format to output format
+*  S - Allow initial values to be populated in BDC
+*----------------------------------------------------------------------*
+  DATA:
+    bdcdata LIKE LINE OF me-&gt;bdcdata.
+
+* Initial values are skipped unless suppress &apos;S&apos; is used
+  IF im_val IS INITIAL AND im_conv &lt;&gt; &apos;S&apos;.
+    RETURN.
+  ENDIF.
+
+  CASE im_conv.
+    WHEN &apos;D&apos;.
+      CALL FUNCTION &apos;CONVERSION_EXIT_MODAT_OUTPUT&apos;
+        EXPORTING
+          input  = im_val
+        IMPORTING
+          output = bdcdata-fval.
+
+    WHEN OTHERS.
+      bdcdata-fval = im_val.
+
+  ENDCASE.
+
+  bdcdata-fnam = im_fld.
+  APPEND bdcdata TO me-&gt;bdcdata.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_SCREEN" VERSION="1" LANGU="E" DESCRIPT="Add screen to BDC table" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140417" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_SCREEN" SCONAME="IM_REPID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="ADD_SCREEN" SCONAME="IM_DYNNR" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+   <source>method ADD_SCREEN.
+*----------------------------------------------------------------------*
+*       Start new BDC screen
+*----------------------------------------------------------------------*
+  DATA:
+    bdcdata LIKE LINE OF me-&gt;bdcdata.
+
+  bdcdata-program  = im_repid.
+  bdcdata-dynpro   = im_dynnr.
+  bdcdata-dynbegin = &apos;X&apos;.
+  APPEND bdcdata TO me-&gt;bdcdata.
+
+endmethod.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="CALL_TRANSACTION" VERSION="1" LANGU="E" DESCRIPT="Execute call transaction for BDC" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140421" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CALL_TRANSACTION" SCONAME="EX_SUBRC" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-SUBRC"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CALL_TRANSACTION" SCONAME="EX_MESSAGES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="TAB_BDCMSGCOLL"/>
+   <source>METHOD CALL_TRANSACTION.
+  DATA:
+    bdc_subrc LIKE sy-subrc.
+
+  CLEAR: ex_subrc, ex_messages.
+
+*-----------------------------------------------------------------------
+* Call BDC
+*-----------------------------------------------------------------------
+* Call the transaction and collect the messages
+  CALL TRANSACTION me-&gt;tcode
+                   USING  me-&gt;bdcdata
+                   MODE   me-&gt;ct_bdc_mode
+                   UPDATE me-&gt;ct_upd_mode
+                   MESSAGES INTO ex_messages.
+
+  bdc_subrc = sy-subrc.
+
+*-----------------------------------------------------------------------
+* Process BDC messages
+*-----------------------------------------------------------------------
+
+* Check if there are any errors
+  LOOP AT ex_messages TRANSPORTING NO FIELDS
+                     WHERE msgtyp = co_msg_type_error
+                     OR    msgtyp = co_msg_type_abend.
+    EXIT. &quot;Exit loop
+  ENDLOOP.
+
+  IF sy-subrc = 0 OR bdc_subrc &lt;&gt; 0.
+    ex_subrc = 4.
+  ENDIF.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="CLEAR_BDC_DATA" VERSION="1" LANGU="E" DESCRIPT="Clear BDC data" EXPOSURE="2" STATE="1" EDITORDER="6 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD CLEAR_BDC_DATA.
+
+  CLEAR: me-&gt;bdcdata.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_BDC_TYPE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="C"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_TCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TCODE"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_BDC_MODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="3 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="C"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_UPD_MODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="4 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="C"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_GROUP" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="5 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-GROUPID"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_USER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="6 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-USERID"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_KEEP" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="7 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-QERASE"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="CONSTRUCTOR" SCONAME="IM_HOLDDATE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="8 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-STARTDATE"/>
+   <source>METHOD constructor.
+
+  me-&gt;bdc_type    = im_bdc_type.
+  me-&gt;tcode       = im_tcode.
+  me-&gt;ct_bdc_mode = im_bdc_mode.
+  me-&gt;ct_upd_mode = im_upd_mode.
+  me-&gt;bi_group    = im_group.
+  me-&gt;bi_user     = im_user.
+  me-&gt;bi_keep     = im_keep.
+  me-&gt;bi_holddate = im_holddate.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="CREATE_BATCH_INPUT_SESS" VERSION="1" LANGU="E" DESCRIPT="Create Batch input session for BDC" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <exception CLSNAME="ZCL_BC_BDC" CMPNAME="CREATE_BATCH_INPUT_SESS" SCONAME="ZCX_BATCH_INPUT_ERROR" VERSION="1" LANGU="E" DESCRIPT="Batch Input Processing Error" MTDTYPE="0" EDITORDER="1 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506"/>
+   <source>METHOD create_batch_input_sess.
+
+  CALL FUNCTION &apos;BDC_OPEN_GROUP&apos;
+    EXPORTING
+      group               = me-&gt;bi_group
+      holddate            = me-&gt;bi_holddate
+      keep                = me-&gt;bi_keep
+      user                = me-&gt;bi_user
+    EXCEPTIONS
+      client_invalid      = 1
+      destination_invalid = 2
+      group_invalid       = 3
+      group_is_locked     = 4
+      holddate_invalid    = 5
+      internal_error      = 6
+      queue_error         = 7
+      running             = 8
+      system_lock_error   = 9
+      user_invalid        = 10
+      OTHERS              = 11.
+  IF sy-subrc &lt;&gt; 0.
+    RAISE EXCEPTION TYPE zcx_batch_input_error
+      EXPORTING
+        msgty = sy-msgty
+        msgid = sy-msgid
+        msgno = sy-msgno
+        msgv1 = sy-msgv1
+        msgv2 = sy-msgv2
+        msgv3 = sy-msgv3
+        msgv4 = sy-msgv4.
+  ENDIF.
+
+  CALL FUNCTION &apos;BDC_INSERT&apos;
+    EXPORTING
+      tcode            = me-&gt;tcode
+    TABLES
+      dynprotab        = me-&gt;bdcdata
+    EXCEPTIONS
+      internal_error   = 1
+      not_open         = 2
+      queue_error      = 3
+      tcode_invalid    = 4
+      printing_invalid = 5
+      posting_invalid  = 6
+      OTHERS           = 7.
+  IF sy-subrc &lt;&gt; 0.
+    RAISE EXCEPTION TYPE zcx_batch_input_error
+      EXPORTING
+        msgty = sy-msgty
+        msgid = sy-msgid
+        msgno = sy-msgno
+        msgv1 = sy-msgv1
+        msgv2 = sy-msgv2
+        msgv3 = sy-msgv3
+        msgv4 = sy-msgv4.
+  ENDIF.
+
+  CALL FUNCTION &apos;BDC_CLOSE_GROUP&apos;
+    EXCEPTIONS
+      not_open    = 1
+      queue_error = 2
+      OTHERS      = 3.
+  IF sy-subrc &lt;&gt; 0.
+    RAISE EXCEPTION TYPE zcx_batch_input_error
+      EXPORTING
+        msgty = sy-msgty
+        msgid = sy-msgid
+        msgno = sy-msgno
+        msgv1 = sy-msgv1
+        msgv2 = sy-msgv2
+        msgv3 = sy-msgv3
+        msgv4 = sy-msgv4.
+  ENDIF.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="PROCESS" VERSION="1" LANGU="E" DESCRIPT="Process the BDC" EXPOSURE="2" STATE="1" EDITORDER="5 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140430" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="PROCESS" SCONAME="EX_SUBRC" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-SUBRC"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="PROCESS" SCONAME="EX_MESSAGES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="TAB_BDCMSGCOLL"/>
+   <exception CLSNAME="ZCL_BC_BDC" CMPNAME="PROCESS" SCONAME="ZCX_BATCH_INPUT_ERROR" VERSION="1" LANGU="E" DESCRIPT="Batch Input Processing Error" MTDTYPE="0" EDITORDER="1 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506"/>
+   <source>METHOD process.
+
+  CLEAR: ex_subrc, ex_messages.
+
+  CASE me-&gt;bdc_type.
+    WHEN &apos;CT&apos;.
+      me-&gt;call_transaction( IMPORTING ex_subrc    = ex_subrc
+                                      ex_messages = ex_messages ).
+    WHEN &apos;BI&apos;.
+      me-&gt;create_batch_input_sess( ).
+  ENDCASE.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="S_FREE_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Free static singleton instance for GC" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140502" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD s_free_instance.
+
+  FREE zcl_bc_bdc=&gt;bdc.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+  <method CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" VERSION="1" LANGU="E" DESCRIPT="Instantiate object" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140417" CHANGEDBY="ENGSWEEY" CHANGEDON="20140506" MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_BDC_TYPE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="C"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_TCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TCODE"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_BDC_MODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="C" PARVALUE="&apos;N&apos;"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_UPD_MODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="C" PARVALUE="&apos;S&apos;"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_GROUP" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-GROUPID" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_USER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-USERID" PARVALUE="SY-UNAME"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_KEEP" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-QERASE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="IM_HOLDDATE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="8 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="APQI-STARTDATE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_BC_BDC" CMPNAME="S_INSTANTIATE" SCONAME="RE_BDC" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="9 " DISPID="0 " AUTHOR="ENGSWEEY" CREATEDON="20140506" CHANGEDON="00000000" PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_BC_BDC"/>
+   <source>METHOD s_instantiate.
+
+* Create singleton so that in any single session, only
+* one instance of class exists
+  IF zcl_bc_bdc=&gt;bdc IS NOT BOUND.
+    ASSERT FIELDS im_tcode CONDITION im_tcode IS NOT INITIAL.
+
+    ASSERT FIELDS im_bdc_type CONDITION im_bdc_type = &apos;CT&apos; OR im_bdc_type = &apos;BI&apos;.
+
+    CREATE OBJECT zcl_bc_bdc=&gt;bdc
+      EXPORTING
+        im_bdc_type = im_bdc_type
+        im_tcode    = im_tcode
+        im_bdc_mode = im_bdc_mode
+        im_upd_mode = im_upd_mode
+        im_group    = im_group
+        im_user     = im_user
+        im_keep     = im_keep
+        im_holddate = im_holddate.
+  ENDIF.
+  re_bdc = zcl_bc_bdc=&gt;bdc.
+
+ENDMETHOD.</source>
+   <methodDocumentation/>
+  </method>
+ </CLAS>
+ <PROG NAME="ZESY_CALL_OO_BDC" VARCL="X" SUBC="1" CNAM="ENGSWEEY" CDAT="20140421" UNAM="ENGSWEEY" UDAT="20140506" VERN="000026" RMAND="100" RLOAD="E" FIXPT="X" SDATE="20140506" STIME="092511" IDATE="20140506" ITIME="092511" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Call BDC OO" LENGTH="11 "/>
+   </language>
+  </textPool>
+  <programDocumentation/>
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZESY_CALL_OO_BDC
+*&amp;
+*&amp;---------------------------------------------------------------------*
+REPORT  zesy_call_oo_bdc.
+
+*----------------------------------------------------------------------*
+*  Selection Screen
+*----------------------------------------------------------------------*
+PARAMETER:
+  p_kunnr  TYPE kna1-kunnr DEFAULT &apos;2400&apos;,
+  p_vkorg  TYPE knvv-vkorg DEFAULT &apos;1000&apos;,
+  p_vtweg  TYPE knvv-vtweg DEFAULT &apos;10&apos;,
+  p_spart  TYPE knvv-spart DEFAULT &apos;00&apos;.
+SELECTION-SCREEN SKIP 1.
+PARAMETER:
+  p_delblk TYPE kna1-lifsd DEFAULT &apos;01&apos;,
+  p_bilblk TYPE kna1-faksd DEFAULT &apos;01&apos;.
+SELECTION-SCREEN SKIP 1.
+
+PARAMETER:
+  p_tran RADIOBUTTON GROUP r1 DEFAULT &apos;X&apos;,
+  p_sess RADIOBUTTON GROUP r1.
+
+*----------------------------------------------------------------------*
+*  Data Declarations
+*----------------------------------------------------------------------*
+DATA:
+  g_bdc       TYPE REF TO zcl_bc_bdc,
+  g_messages  TYPE tab_bdcmsgcoll,
+  g_message   LIKE LINE OF g_messages,
+  g_subrc     TYPE sy-subrc,
+  g_exception TYPE REF TO zcx_batch_input_error,
+  g_error     TYPE string.
+
+*----------------------------------------------------------------------*
+*  Initialization
+*----------------------------------------------------------------------*
+*INITIALIZATION.
+
+*----------------------------------------------------------------------*
+*  Start of Selection
+*----------------------------------------------------------------------*
+START-OF-SELECTION.
+
+* Create an object for BDC
+  IF p_tran = &apos;X&apos;.
+    g_bdc = zcl_bc_bdc=&gt;s_instantiate( im_bdc_type = &apos;CT&apos;
+                                       im_tcode    = &apos;VD05&apos; ).
+  ELSEIF p_sess = &apos;X&apos;.
+    g_bdc = zcl_bc_bdc=&gt;s_instantiate( im_bdc_type = &apos;BI&apos;
+                                       im_tcode    = &apos;VD05&apos;
+                                       im_group    = &apos;MY_SESSION&apos;
+                                       im_keep     = &apos;X&apos;
+                                       im_holddate = &apos;20140528&apos; ).
+  ENDIF.
+
+* Populate first screen
+  g_bdc-&gt;add_screen( im_repid = &apos;SAPMF02D&apos; im_dynnr = &apos;0507&apos;).
+  g_bdc-&gt;add_field( im_fld = &apos;BDC_OKCODE&apos;  im_val = &apos;/00&apos;).
+  g_bdc-&gt;add_field( im_fld = &apos;RF02D-KUNNR&apos; im_val = p_kunnr ).
+  g_bdc-&gt;add_field( im_fld = &apos;RF02D-VKORG&apos; im_val = p_vkorg ).
+  g_bdc-&gt;add_field( im_fld = &apos;RF02D-VTWEG&apos; im_val = p_vtweg ).
+  g_bdc-&gt;add_field( im_fld = &apos;RF02D-SPART&apos; im_val = p_spart ).
+* Populate second screen
+  g_bdc-&gt;add_screen( im_repid = &apos;SAPMF02D&apos; im_dynnr = &apos;0510&apos;).
+  g_bdc-&gt;add_field( im_fld = &apos;BDC_OKCODE&apos; im_val = &apos;=UPDA&apos;).
+  g_bdc-&gt;add_field( im_fld = &apos;KNA1-LIFSD&apos; im_val = p_delblk ).
+  g_bdc-&gt;add_field( im_fld = &apos;KNA1-FAKSD&apos; im_val = p_bilblk ).
+
+*----------------------------------------------------------------------*
+*  End of Selection
+*----------------------------------------------------------------------*
+END-OF-SELECTION.
+
+  IF p_tran = &apos;X&apos;.
+    g_bdc-&gt;process( IMPORTING ex_subrc    = g_subrc
+                              ex_messages = g_messages ).
+*   Display processing status
+    IF g_subrc = 0.
+      WRITE:/ &apos;Success:&apos;.
+    ELSE.
+      WRITE:/ &apos;Error:&apos;.
+*     Display messages in list
+      LOOP AT g_messages INTO g_message.
+        MESSAGE ID g_message-msgid
+                TYPE g_message-msgtyp
+                NUMBER g_message-msgnr
+                WITH g_message-msgv1
+                     g_message-msgv2
+                     g_message-msgv3
+                     g_message-msgv4
+                INTO g_error.
+        WRITE:/ g_error.
+      ENDLOOP.
+    ENDIF.
+  ELSEIF p_sess = &apos;X&apos;.
+    TRY.
+        g_bdc-&gt;process( ).
+        WRITE: &apos;Success: Check session in SM35&apos;.
+      CATCH zcx_batch_input_error INTO g_exception.
+        WRITE:/ &apos;Error creating batch input session:&apos;.
+        MESSAGE ID g_exception-&gt;msgid
+                TYPE &apos;E&apos;
+                NUMBER g_exception-&gt;msgno
+                WITH g_exception-&gt;msgv1
+                     g_exception-&gt;msgv2
+                     g_exception-&gt;msgv3
+                     g_exception-&gt;msgv4
+                INTO g_error.
+        WRITE:/ g_error.
+    ENDTRY.
+  ENDIF.</source>
+ </PROG>
+</nugget>
