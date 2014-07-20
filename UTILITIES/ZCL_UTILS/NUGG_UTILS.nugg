@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="UTILS">
+ <CLAS CLSNAME="ZCL_UTILS" VERSION="1" LANGU="E" DESCRIPT="Miscellaneous utilities" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <typeUsage CLSNAME="ZCL_UTILS" TYPEGROUP="TRUXS" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
+  <forwardDeclaration>TRUXS</forwardDeclaration>
+  <method CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" VERSION="1" LANGU="E" DESCRIPT="Convert internal table to CSV format" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="IV_FIELD_SEPARATOR" VERSION="1" LANGU="E" DESCRIPT="Field separator" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR01" PARVALUE="&apos;;&apos;"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="IV_LINE_HEADER" VERSION="1" LANGU="E" DESCRIPT="Line header" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR01" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="IV_FILENAME" VERSION="1" LANGU="E" DESCRIPT="Local file for upload/download" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="LOCALFILE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="IV_APPL_KEEP" VERSION="1" LANGU="E" DESCRIPT="Character Field Length 1" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR01" PARVALUE="&apos;&apos;"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="IT_TAB_SAP_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY TABLE"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="CT_TAB_CONVERTED_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TRUXS_T_TEXT_DATA"/>
+   <exception CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_INT_TABLE_2_CSV" SCONAME="CONVERSION_FAILED" VERSION="1" LANGU="E" DESCRIPT="Conversion failed" MTDTYPE="0" EDITORDER="1 "/>
+   <source>*&amp;---------------------------------------------------------------------*
+* Author: Bruno Esperança
+*
+* Description: Copied from standard FM SAP_CONVERT_TO_CSV_FORMAT to
+*              allow for different field separators
+*&amp;
+*&amp;---------------------------------------------------------------------*
+* Changes
+* SM | Date | Author | Description
+*&amp;---------------------------------------------------------------------*
+
+METHOD convert_int_table_2_csv.
+
+  FIELD-SYMBOLS:
+        &lt;lf_table&gt; TYPE STANDARD TABLE.
+
+  DATA:
+        l_start_string LIKE sy-fdpos,
+        l_end_string LIKE sy-fdpos,
+        l_len_string(6) TYPE n,
+        l_eol_string LIKE sy-fdpos,
+        l_start_target_string LIKE sy-fdpos,
+        l_end_target_string LIKE sy-fdpos,
+        l_len_target_string(6) TYPE n,
+        l_eol_target_string LIKE sy-fdpos,
+        l_conv_data TYPE LINE OF truxs_t_text_data,
+        l_csv_data TYPE LINE OF truxs_t_text_data.
+
+  ASSIGN it_tab_sap_data TO &lt;lf_table&gt;.
+  CHECK &lt;lf_table&gt; IS ASSIGNED.
+
+  CALL FUNCTION &apos;SAP_CONVERT_TO_TEX_FORMAT&apos;
+    EXPORTING
+      i_field_seperator    = iv_field_separator
+      i_line_header        = iv_line_header
+      i_filename           = iv_filename
+    TABLES
+      i_tab_sap_data       = &lt;lf_table&gt;
+    CHANGING
+      i_tab_converted_data = ct_tab_converted_data
+    EXCEPTIONS
+      conversion_failed    = 4.
+
+  CHECK sy-subrc &lt;&gt; 0.
+  MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+          WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+          RAISING conversion_failed.
+
+  DESCRIBE FIELD l_csv_data LENGTH l_len_target_string
+                                     IN CHARACTER MODE.
+  DESCRIBE FIELD l_conv_data LENGTH l_eol_string
+                                     IN CHARACTER MODE.
+  LOOP AT ct_tab_converted_data INTO l_conv_data.
+    l_start_string = 1.
+    CLEAR: l_csv_data,
+           l_start_target_string,
+           l_end_target_string.
+    DO.
+      SEARCH l_conv_data FOR iv_field_separator STARTING AT
+                                                  l_start_string
+                                                  ENDING AT
+                                                  l_eol_string.
+      IF sy-subrc &lt;&gt; 0.
+        EXIT.
+      ENDIF.
+      IF sy-subrc = 0.
+        l_end_string = l_start_string + sy-fdpos.
+        l_len_string = l_end_string - l_start_string + 1.
+        l_start_string = l_start_string - 1.
+        l_end_target_string = l_end_target_string + l_len_string + 4.
+        IF l_end_target_string &lt; l_len_target_string.
+          l_csv_data+l_start_target_string(3) = &apos;&quot;&quot;&quot;&apos;.
+          l_start_target_string = l_start_target_string + 3.
+          l_csv_data+l_start_target_string(l_len_string) =
+                                      l_conv_data+l_start_string.
+          l_start_target_string = l_start_target_string + l_len_string
+                                                        - 1.
+          l_csv_data+l_start_target_string(1) = &apos;&quot;&apos;.
+          l_start_target_string = l_start_target_string + 1.
+          l_csv_data+l_start_target_string(1) = &apos;;&apos;.
+          l_end_target_string = strlen( l_csv_data ).
+          l_start_target_string = l_end_target_string.
+          l_start_string = l_end_string + 1.
+        ELSE.
+          EXIT.
+        ENDIF.
+      ENDIF.
+    ENDDO.
+    MODIFY ct_tab_converted_data FROM l_csv_data.
+  ENDLOOP.
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_STRING_2_SOLI" VERSION="1" LANGU="E" DESCRIPT="Convert String to SOLI Table" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_STRING_2_SOLI" SCONAME="IV_STRING" VERSION="1" LANGU="E" DESCRIPT="Text string" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="STRING"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_STRING_2_SOLI" SCONAME="RT_CONTENT" VERSION="1" LANGU="E" DESCRIPT="Objcont and Objhead as Table Type" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SOLI_TAB"/>
+   <source>**********************************************************************
+* Author: Bruno Esperança
+* Description: Convert string to SOLI table
+**********************************************************************
+
+METHOD convert_string_2_soli.
+
+  &quot;CYA
+  DATA lv_string TYPE string.
+  lv_string = iv_string.
+
+  CALL FUNCTION &apos;SO_STRING_TO_TAB&apos;
+    EXPORTING
+      content_str = lv_string
+    TABLES
+      content_tab = rt_content.
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_SOLI" VERSION="1" LANGU="E" DESCRIPT="Convert SAP Script Table to SOLI Table" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_SOLI" SCONAME="IT_TLINE" VERSION="1" LANGU="E" DESCRIPT="Lines of ITF" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TLINETAB"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_SOLI" SCONAME="IV_LANGU" VERSION="1" LANGU="E" DESCRIPT="Language Key" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SPRAS" PARVALUE="SY-LANGU"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_SOLI" SCONAME="RT_CONTENT" VERSION="1" LANGU="E" DESCRIPT="Objcont and Objhead as Table Type" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SOLI_TAB"/>
+   <source>**********************************************************************
+* Author: Bruno Esperança
+* Description: Convert SAP Script table to SOLI
+**********************************************************************
+
+METHOD convert_tline_2_soli.
+
+  DATA:
+        lt_tline TYPE tlinetab,
+        lv_string TYPE string.
+
+  lt_tline = it_tline.
+
+  lv_string = zcl_utils=&gt;convert_tline_2_string(
+      it_tline  = lt_tline
+      iv_langu  = sy-langu
+  ).
+
+  rt_content = zcl_utils=&gt;convert_string_2_soli( lv_string  ).
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_STRING" VERSION="1" LANGU="E" DESCRIPT="Convert SAP Script Table to String" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_STRING" SCONAME="IT_TLINE" VERSION="1" LANGU="E" DESCRIPT="Lines of ITF" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TLINETAB"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_STRING" SCONAME="IV_LANGU" VERSION="1" LANGU="E" DESCRIPT="Language Key" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SPRAS" PARVALUE="SY-LANGU"/>
+   <parameter CLSNAME="ZCL_UTILS" CMPNAME="CONVERT_TLINE_2_STRING" SCONAME="RV_STRING" VERSION="1" LANGU="E" DESCRIPT="Text string" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <source>**********************************************************************
+* Author: Bruno Esperança
+* Description: This method converts a TLINE table to a String
+*              It was taken from class CL_ALERT_CAT_MANAGER
+**********************************************************************
+
+METHOD convert_tline_2_string.
+
+  DATA: lt_atline TYPE TABLE OF tdline,
+        ls_atline       TYPE tdline,
+        l_wa_string     TYPE string,
+        l_blank_string  TYPE string,
+        l_len_content   TYPE i,
+        l_len_wa        TYPE i,
+        l_cnt_content   TYPE i.
+  DATA: lt_tline        TYPE tlinetab.                      &quot;897432
+
+* table itf_text is manipulated within convert_itf_to_stream.
+* Therefore a copy to a local tables is needed.            897432
+  lt_tline = it_tline.                                      &quot;897432
+
+  CALL FUNCTION &apos;CONVERT_ITF_TO_STREAM_TEXT&apos;
+    EXPORTING
+      language    = iv_langu
+    TABLES
+      itf_text    = lt_tline                                &quot;897432
+      text_stream = lt_atline.
+
+  DESCRIBE FIELD ls_atline LENGTH l_len_content IN CHARACTER MODE.
+* build blank string
+  l_wa_string = &apos; 0&apos;.
+  DO l_len_content TIMES.
+    CONCATENATE l_blank_string l_wa_string(1) INTO l_blank_string.
+  ENDDO.
+* transfer table to string
+  DESCRIBE TABLE lt_atline LINES l_cnt_content.
+  CLEAR rv_string.
+  LOOP AT lt_atline INTO ls_atline.
+    CONCATENATE rv_string ls_atline INTO rv_string.
+    IF sy-tabix &lt; l_cnt_content.
+*     check blanks at the end of the string
+      l_len_wa = l_len_content - strlen( ls_atline ).
+      CONCATENATE rv_string l_blank_string(l_len_wa) INTO rv_string.
+    ENDIF.
+  ENDLOOP.
+
+ENDMETHOD.</source>
+  </method>
+ </CLAS>
+</nugget>

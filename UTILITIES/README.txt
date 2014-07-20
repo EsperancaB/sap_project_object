@@ -19,3 +19,9 @@ ZCL_BC_BDC
 Utility class for BDC (Call Transaction and Batch Input)
 
 ***********************************************************
+
+ZCL_UTILS
+
+Miscellaneous utility class with conversions, etc.
+
+***********************************************************
