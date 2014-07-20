@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="BILLING_PLAN_DATE">
+ <CLAS CLSNAME="ZCL_BILLING_PLAN_DATE" VERSION="1" LANGU="E" DESCRIPT="Billing Plan Date" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="ITEM" VERSION="1" LANGU="E" DESCRIPT="Billing Plan: Dates" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="FPLT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Get Billing Plan Date instance" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_INSTANCE" SCONAME="IM_BILLING_PLAN_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Billing plan number / invoicing plan number" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="FPLNR"/>
+   <parameter CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_INSTANCE" SCONAME="IM_BILLING_PLAN_ITEM" VERSION="1" LANGU="E" DESCRIPT="Item for billing plan/invoice plan/payment cards" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="FPLTR"/>
+   <parameter CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_INSTANCE" SCONAME="RE_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Billing Plan Date" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_BILLING_PLAN_DATE"/>
+   <exception CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_INSTANCE" SCONAME="ZCX_BILL_PLAN_DATE_NOT_FOUND" VERSION="1" LANGU="E" DESCRIPT="Billing Plan Date not found" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD get_instance.
+
+  &quot;Get billing plan date
+  DATA item TYPE fplt.
+  SELECT SINGLE * FROM fplt
+    INTO item
+    WHERE fplnr = im_billing_plan_number
+      AND fpltr = im_billing_plan_item.
+  IF sy-subrc &lt;&gt; 0.
+    RAISE EXCEPTION TYPE zcx_bill_plan_date_not_found
+      EXPORTING
+        billing_plan_number = im_billing_plan_number
+        billing_plan_item   = im_billing_plan_item.
+  ENDIF.
+
+  CREATE OBJECT re_instance.
+  re_instance-&gt;item = item.
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_SALES_ORDER" VERSION="1" LANGU="E" DESCRIPT="Get related Sales Order" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="GET_SALES_ORDER" SCONAME="RE_SALES_ORDER" VERSION="1" LANGU="E" DESCRIPT="Sales Order" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_SALES_ORDER"/>
+   <source>METHOD get_sales_order.
+
+  DATA sales_order_number TYPE vbeln_va.
+  SELECT SINGLE vbeln FROM vbkd
+    INTO sales_order_number
+    WHERE fplnr = me-&gt;item-fplnr.
+  CHECK sy-subrc = 0.
+
+  re_sales_order = zcl_sales_order=&gt;get_instance(
+                     im_sales_order_number = sales_order_number ).
+*    CATCH zcx_sales_order_not_found.  &quot; Sales Order not found
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="REFRESH_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Refresh data for the Billing Plan Date" EXPOSURE="2" STATE="1" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD refresh_instance.
+
+  &quot;Get billing plan date
+  SELECT SINGLE * FROM fplt
+    INTO me-&gt;item
+    WHERE fplnr = me-&gt;item-fplnr
+      AND fpltr = me-&gt;item-fpltr.
+  IF sy-subrc &lt;&gt; 0.
+    RAISE EXCEPTION TYPE zcx_bill_plan_date_not_found
+      EXPORTING
+        billing_plan_number = me-&gt;item-fplnr
+        billing_plan_item   = me-&gt;item-fpltr.
+  ENDIF.
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="SET_BILLING_BLOCK" VERSION="1" LANGU="E" DESCRIPT="Set Billing Plan Date billing block" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_BILLING_PLAN_DATE" CMPNAME="SET_BILLING_BLOCK" SCONAME="IM_BILLING_BLOCK" VERSION="1" LANGU="E" DESCRIPT="Billing block for billing plan/invoice plan dates" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="FAKSP_FP"/>
+   <source>METHOD set_billing_block.
+
+  &quot;This is the best way I found to do this, but if you find
+  &quot;something better I would be very happy to know about it!
+  FIELD-SYMBOLS &lt;lf_bill_plan_date&gt; TYPE fpltvb.
+  DATA:
+        lt_fpla_old  TYPE TABLE OF fplavb,
+        lt_fpla_new  TYPE TABLE OF fplavb,
+        ls_fpla      LIKE LINE OF lt_fpla_new,
+        lt_fplt_old  TYPE TABLE OF fpltvb,
+        lt_fplt_new  TYPE TABLE OF fpltvb,
+        ls_fplt      LIKE LINE OF lt_fplt_new.
+
+  CALL FUNCTION &apos;BILLING_SCHEDULE_READ&apos;
+    EXPORTING
+      fplnr = me-&gt;item-fplnr
+    TABLES
+      zfpla = lt_fpla_old
+      zfplt = lt_fplt_old.
+  lt_fpla_new = lt_fpla_old.
+  lt_fplt_new = lt_fplt_old.
+
+  READ TABLE lt_fplt_old INTO
+    ls_fplt
+    WITH KEY fpltr = me-&gt;item-fpltr.
+  CHECK sy-subrc = 0.
+
+  ls_fplt-faksp = im_billing_block.
+
+  CALL FUNCTION &apos;BILLING_SCHEDULE_MAINTAIN&apos;
+    EXPORTING
+      i_fplt     = ls_fplt
+      i_upd_fplt = abap_true
+      i_fplnr    = me-&gt;item-fplnr
+    TABLES
+      fpla_old   = lt_fpla_old
+      fpla_new   = lt_fpla_new
+      fplt_old   = lt_fplt_old
+      fplt_new   = lt_fplt_new.
+
+  CALL FUNCTION &apos;BILLING_SCHEDULE_SAVE&apos;
+    TABLES
+      fpla_new = lt_fpla_new
+      fpla_old = lt_fpla_old
+      fplt_new = lt_fplt_new
+      fplt_old = lt_fplt_old.
+
+*// TODO
+*  I&apos;m leaving this commented because you never know
+*  if this is used in a user-exit/BAdI...
+*  Eventually maybe I&apos;ll find a solution like a
+*  commit parameter, as found on some function modules
+
+*  &quot;The best way to confirm the update is probably to
+*  &quot;get the info from the database...
+*  CALL FUNCTION &apos;BAPI_TRANSACTION_COMMIT&apos;
+*    EXPORTING
+*      wait = abap_true.
+*
+*  me-&gt;refresh_instance( ).
+*
+*  IF me-&gt;item-faksp &lt;&gt; im_billing_block.
+*    &quot;There was an error??
+*    RAISE EXCEPTION TYPE zcx_bill_plan_date_not_updated
+*      EXPORTING
+*        billing_plan_number = me-&gt;item-fplnr
+*        billing_plan_item   = me-&gt;item-fpltr.
+*  ENDIF.
+
+ENDMETHOD.</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_BILLING_PLAN_DATE" VERSION="1" LANGU="E" DESCRIPT="Billing Plan Date exception class" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_BILLING_PLAN">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_BILLING_PLAN_DATE" CMPNAME="BILLING_PLAN_ITEM" VERSION="1" LANGU="E" DESCRIPT="Item for billing plan/invoice plan/payment cards" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="FPLTR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_BILLING_PLAN_DATE" CMPNAME="ZCX_BILLING_PLAN_DATE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error with Billing Plan Date &amp;BILLING_PLAN_NUMBER&amp; &amp;BILLING_PLAN_ITEM&amp;."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BILLING_PLAN_DATE" REFCLSNAME="ZCX_BILLING_PLAN" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_BILL_PLAN_DATE_NOT_FOUND" VERSION="1" LANGU="E" DESCRIPT="Billing Plan Date not found" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_BILLING_PLAN_DATE">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_BILL_PLAN_DATE_NOT_FOUND" CMPNAME="ZCX_BILL_PLAN_DATE_NOT_FOUND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Billing Plan Date &amp;BILLING_PLAN_NUMBER&amp; &amp;BILLING_PLAN_ITEM&amp; not found."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BILL_PLAN_DATE_NOT_FOUND" REFCLSNAME="ZCX_BILLING_PLAN_DATE" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_BILL_PLAN_DATE_NOT_UPDATED" VERSION="1" LANGU="E" DESCRIPT="Error updating Billing Plan Date" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_BILLING_PLAN_DATE">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_BILL_PLAN_DATE_NOT_UPDATED" CMPNAME="ZCX_BILL_PLAN_DATE_NOT_UPDATED" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="There was an error updating Billing Plan Date &amp;BILLING_PLAN_NUMBER&amp; &amp;BILLING_PLAN_ITEM&amp;."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_BILL_PLAN_DATE_NOT_UPDATED" REFCLSNAME="ZCX_BILLING_PLAN_DATE" VERSION="1" STATE="1"/>
+ </CLAS>
+</nugget>

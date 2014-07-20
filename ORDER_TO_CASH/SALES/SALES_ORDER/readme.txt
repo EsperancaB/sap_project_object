@@ -14,6 +14,15 @@ class ZCL_SALES_ORDER
 	
 		This method returns a partner of type VBPA
 
+	instance method INIT_DATA
+	
+		This method will initialize/refresh the instance data
+
+	instance method INIT_PARTNERS
+	
+		This method will initialize/refresh the instance partner data
+
+
 
 class ZCX_SALES_ORDER
 

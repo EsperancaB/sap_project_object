@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="SALES_ORDER_ITEM">
+ <CLAS CLSNAME="ZCL_SALES_ORDER_ITEM" VERSION="1" LANGU="E" DESCRIPT="Sales Order item" CATEGORY="00" EXPOSURE="1" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="ITEM_DATA" VERSION="1" LANGU="E" DESCRIPT="Sales Document: Item Data" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="VBAP" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="GET_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Get sales order item instance" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="GET_INSTANCE" SCONAME="IM_SO_ITEM_KEY" VERSION="1" LANGU="E" DESCRIPT="Structure for Collective Accesses to SD Document Items" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SALES_ITEM_KEY"/>
+   <parameter CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="GET_INSTANCE" SCONAME="RE_INSTANCE" VERSION="1" LANGU="E" DESCRIPT="Sales Order item" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_SALES_ORDER_ITEM"/>
+   <exception CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="GET_INSTANCE" SCONAME="ZCX_SO_ITEM_NOT_FOUND" VERSION="1" LANGU="E" DESCRIPT="Sales Order item not found" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD get_instance.
+
+  &quot;Get sales order item
+  DATA item_data TYPE vbap.
+  SELECT SINGLE * FROM vbap
+    INTO item_data
+    WHERE vbeln = im_so_item_key-vbeln
+      AND posnr = im_so_item_key-posnr.
+  IF sy-subrc &lt;&gt; 0.
+    RAISE EXCEPTION TYPE zcx_so_item_not_found
+      EXPORTING
+        sales_order_item = im_so_item_key.
+  ENDIF.
+
+  CREATE OBJECT re_instance.
+  re_instance-&gt;item_data = item_data.
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="SET_REJECTION_REASON" VERSION="1" LANGU="E" DESCRIPT="Set rejection reason" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="SET_REJECTION_REASON" SCONAME="IM_REJECTION_REASON" VERSION="1" LANGU="E" DESCRIPT="Reason for rejection of quotations and sales orders" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABGRU"/>
+   <parameter CLSNAME="ZCL_SALES_ORDER_ITEM" CMPNAME="SET_REJECTION_REASON" SCONAME="RE_MESSAGES" VERSION="1" LANGU="E" DESCRIPT="Return error table type parameter" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="BAPIRET2_TT"/>
+   <source>METHOD set_rejection_reason.
+
+  DATA:
+        order_header_inx  TYPE bapisdh1x,
+        order_item_ins    TYPE TABLE OF bapisditm,
+        order_item_in     LIKE LINE OF order_item_ins,
+        order_item_insx   TYPE TABLE OF bapisditmx,
+        order_item_inx    LIKE LINE OF order_item_insx.
+
+  order_item_inx-itm_number = order_item_in-itm_number = item_data-posnr.
+  order_item_in-reason_rej = im_rejection_reason.
+  order_header_inx-updateflag = order_item_inx-updateflag = &apos;U&apos;.
+  order_item_inx-reason_rej = abap_true.
+  APPEND order_item_inx TO order_item_insx.
+  APPEND order_item_in  TO order_item_ins.
+
+  CALL FUNCTION &apos;BAPI_SALESORDER_CHANGE&apos;
+    EXPORTING
+      salesdocument    = item_data-vbeln
+      order_header_inx = order_header_inx
+    TABLES
+      return           = re_messages
+      order_item_in    = order_item_ins
+      order_item_inx   = order_item_insx.
+
+  READ TABLE re_messages TRANSPORTING NO FIELDS
+    WITH KEY type = &apos;E&apos;.
+  IF sy-subrc = 0.
+    &quot;There was an error, return
+    RETURN.
+  ENDIF.
+
+  &quot;Commit
+  CALL FUNCTION &apos;BAPI_TRANSACTION_COMMIT&apos;
+    EXPORTING
+      wait = abap_true.
+
+  &quot;Update instance data
+  SELECT SINGLE * FROM vbap
+    INTO me-&gt;item_data
+    WHERE vbeln = me-&gt;item_data-vbeln
+      AND posnr = me-&gt;item_data-posnr.
+
+ENDMETHOD.</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_SALES_ORDER_ITEM" VERSION="1" LANGU="E" DESCRIPT="Sales Order Item class exceptions" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CX_DYNAMIC_CHECK">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_SALES_ORDER_ITEM" CMPNAME="SALES_ORDER_ITEM" VERSION="1" LANGU="E" DESCRIPT="Structure for Collective Accesses to SD Document Items" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SALES_ITEM_KEY" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_SALES_ORDER_ITEM" CMPNAME="ZCX_SALES_ORDER_ITEM" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error with Sales Order item &amp;SALES_ORDER_ITEM&amp;."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_SALES_ORDER_ITEM" REFCLSNAME="CX_DYNAMIC_CHECK" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_SO_ITEM_NOT_FOUND" VERSION="1" LANGU="E" DESCRIPT="Sales Order item not found" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_SALES_ORDER_ITEM">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_SO_ITEM_NOT_FOUND" CMPNAME="ZCX_SO_ITEM_NOT_FOUND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Sales Order item &amp;SALES_ORDER_ITEM&amp; not found."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_SO_ITEM_NOT_FOUND" REFCLSNAME="ZCX_SALES_ORDER_ITEM" VERSION="1" STATE="1"/>
+ </CLAS>
+</nugget>
