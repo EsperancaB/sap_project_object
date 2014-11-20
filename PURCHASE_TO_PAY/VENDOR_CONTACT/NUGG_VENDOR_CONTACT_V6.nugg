@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="VENDOR_CONTACT_V6">
+ <CLAS CLSNAME="ZCX_VENDOR_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Vendor Contact class exceptions" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CX_DYNAMIC_CHECK">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_VENDOR_CONTACT" CMPNAME="PARTNER_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Number of contact person" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="PARNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCX_VENDOR_CONTACT" CMPNAME="ZCX_VENDOR_CONTACT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error with contact person number &amp;PARTNER_NUMBER&amp;."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_VENDOR_CONTACT" REFCLSNAME="CX_DYNAMIC_CHECK" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_VENDOR_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Vendor contact" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <types CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="ADDRESS_SEL_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="38 " TYPESRC_LENG="313 " TYPESRC="BEGIN OF address_sel_type,
+                  master_tab      TYPE tabname,
+                  master_field    TYPE fieldname,
+                  extract         TYPE conv_separator,
+                  key_content(79),
+                  number          TYPE ad_addrnum,
+                END OF address_sel_type
+"/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <classDocumentation OBJECT="ZCL_VENDOR_CONTACT">
+   <language SPRAS="E">
+    <textLine TDFORMAT="U1" TDLINE="&amp;FUNCTIONALITY&amp;"/>
+    <textLine TDFORMAT="AS" TDLINE="There is documentation in the public methods. Check them."/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;RELATIONS&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;EXAMPLE&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;HINTS&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;FURTHER_SOURCES_OF_INF&amp;"/>
+    <textLine TDFORMAT="AS"/>
+   </language>
+  </classDocumentation>
+  <typeUsage CLSNAME="ZCL_VENDOR_CONTACT" TYPEGROUP="SZADR" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
+  <forwardDeclaration>SZADR</forwardDeclaration>
+  <attribute CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CONSTANT" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="1" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="4 " SRCCOLUMN1="4 " SRCROW2="8 " SRCCOLUMN2="24 " TYPESRC_LENG="199 " TYPESRC="BEGIN OF constant,
+            insert TYPE ad_op_code VALUE &apos;I&apos;,
+            update TYPE ad_op_code VALUE &apos;U&apos;,
+            business_partner TYPE ad_group_p VALUE &apos;BP&apos;,
+          END OF constant
+"/>
+  <attribute CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="HEADER_DATA" VERSION="1" LANGU="E" DESCRIPT="Customer Master Contact Partner" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="KNVK" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="VENDOR_ADDRESS_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Vendor address number" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ADRNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" VERSION="1" LANGU="E" DESCRIPT="Build handles and references" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="IM_NEW_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Change Document Structure; Generated by RSSCD000" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="FKNVK"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="IM_ADDR_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Address number" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="AD_ADDRNUM"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="EX_PERS_HANDLE" VERSION="1" LANGU="E" DESCRIPT="Handle for Creating Addresses/Persons (Bus. Addr. Services)" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="AD_HANDLE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="EX_PERS_REF" VERSION="1" LANGU="E" DESCRIPT="Person Use Data Transfer Structure (Business Addr. Service)" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="PERS_REF"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="EX_ADDR_HANDLE" VERSION="1" LANGU="E" DESCRIPT="Handle for Creating Addresses/Persons (Bus. Addr. Services)" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="AD_HANDLE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="EX_ADDR_REF" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for the use of addresses" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR_REF"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="EX_BUSI_HANDLE" VERSION="1" LANGU="E" DESCRIPT="Handle for Creating Addresses/Persons (Bus. Addr. Services)" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="AD_HANDLE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="BUILD_HANDLES_AND_REFS" SCONAME="EX_BUSI_REF" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for the use of addresses" CMPTYPE="1" MTDTYPE="0" EDITORDER="8 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR_REF"/>
+   <source>METHOD build_handles_and_refs.
+
+    &quot;Personal handle and personal ref
+    DATA:
+          person TYPE address_sel_type,
+          address_type TYPE char1.
+
+    person-master_tab = &apos;KNVK&apos;.
+    person-master_field = &apos;PRSNR&apos;.
+    person-key_content = im_new_contact-parnr.
+    person-extract = &apos;L&apos;. &quot;God only knows what this is...
+    address_type = &apos;3&apos;.
+
+    ex_pers_handle = person.
+
+    &quot;Should this be done locally maybe?
+    &quot;Because it&apos;s not that complicated...
+    PERFORM build_person_reference IN PROGRAM (&apos;SAPMF02K&apos;)
+      USING
+        person
+        im_addr_number
+        address_type
+      CHANGING
+        ex_pers_ref.
+
+    &quot;Address handle and address ref
+    DATA address TYPE address_sel_type.
+
+    address_type = &apos;3&apos;.
+
+    address-master_tab = &apos;KNVK&apos;.
+    address-master_field = &apos;ADRNP_2&apos;.
+    address-extract = &apos;L&apos;. &quot;Again, God only knows...
+    address-key_content = im_new_contact-parnr.
+
+    ex_addr_handle = address.
+
+    PERFORM build_address_reference IN PROGRAM (&apos;SAPMF02K&apos;)
+      USING
+        address
+        address_type &quot;as long as it isn&apos;t 1 it&apos;s ok, apparently
+      CHANGING
+        ex_addr_ref.
+
+    &quot;For the business address
+    address-master_field = &apos;ADRND&apos;.
+    ex_busi_handle = address.
+
+    PERFORM build_address_reference IN PROGRAM (&apos;SAPMF02K&apos;)
+      USING
+        address
+        address_type &quot;as long as it isn&apos;t 1 it&apos;s ok, apparently
+      CHANGING
+        ex_busi_ref.
+
+  ENDMETHOD.                    &quot;build_handles_and_refs</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_BUSINESS_ADDRESS_DATA" VERSION="1" LANGU="E" DESCRIPT="Check if business address data has necessary data" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_BUSINESS_ADDRESS_DATA" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for person with private address" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA" PAROPTIONL="X"/>
+   <exception CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_BUSINESS_ADDRESS_DATA" SCONAME="ZCX_VENDOR_CONTACT_DATA_MISS" VERSION="1" LANGU="E" DESCRIPT="Vendor contact data missing" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD check_business_address_data.
+
+    IF im_business_address-country IS INITIAL.
+      RAISE EXCEPTION TYPE zcx_vendor_contact_data_miss.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;CHECK_BUSINESS_ADDRESS_DATA</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="Check if the contact data has necessary data" EXPOSURE="0" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_CONTACT_DATA" SCONAME="IM_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="Header vendor/customer contact data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_CONTACT_DATA" SCONAME="EX_VENDOR_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Address" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ADRNR"/>
+   <exception CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_CONTACT_DATA" SCONAME="ZCX_VENDOR_CONTACT_DATA_MISS" VERSION="1" LANGU="E" DESCRIPT="Vendor contact data missing" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD CHECK_CONTACT_DATA.
+
+    &quot;Make sure the vendor exists
+    data dummy_lifnr TYPE lifnr.
+    SELECT SINGLE lifnr FROM lfa1
+      INTO dummy_lifnr
+      WHERE lifnr = im_header_contact_data-lifnr.
+    IF sy-subrc &lt;&gt; 0.
+      RAISE EXCEPTION TYPE zcx_vendor_contact_data_miss.
+    ENDIF.
+
+    &quot;And make sure the vendor has an address number too!
+    SELECT SINGLE adrnr FROM lfa1
+      INTO ex_vendor_address
+      WHERE lifnr = im_header_contact_data-lifnr.
+    IF sy-subrc &lt;&gt; 0
+      OR ex_vendor_address IS INITIAL.
+      RAISE EXCEPTION TYPE zcx_vendor_contact_data_miss.
+    ENDIF.
+
+    &quot;Check if a name was provided
+    IF im_header_contact_data-name1 IS INITIAL.
+      RAISE EXCEPTION TYPE zcx_vendor_contact_data_miss.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;check_private_address_data</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_NECESSARY_DATA" VERSION="1" LANGU="E" DESCRIPT="Check if necessary data was provided" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_NECESSARY_DATA" SCONAME="IM_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="Header vendor/customer contact data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_NECESSARY_DATA" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for person with private address" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_NECESSARY_DATA" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Address transfer structure" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_NECESSARY_DATA" SCONAME="EX_VENDOR_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Address" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ADRNR"/>
+   <exception CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_NECESSARY_DATA" SCONAME="ZCX_VENDOR_CONTACT_DATA_MISS" VERSION="1" LANGU="E" DESCRIPT="Vendor contact data missing" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD check_necessary_data.
+
+*    Check contact data
+    check_contact_data(
+      EXPORTING
+        im_header_contact_data = im_header_contact_data
+      IMPORTING
+        ex_vendor_address = ex_vendor_address ).
+
+    &quot;Check private address data
+    IF im_private_address IS NOT INITIAL.
+      check_private_address_data( im_private_address ).
+    ENDIF.
+
+    &quot;Check business address data
+    IF im_business_address IS NOT INITIAL.
+      check_business_address_data( im_business_address ).
+    ENDIF.
+
+  ENDMETHOD.                    &quot;check_necessary_data</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_PRIVATE_ADDRESS_DATA" VERSION="1" LANGU="E" DESCRIPT="Check if private address data has necessary data" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_PRIVATE_ADDRESS_DATA" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for person with private address" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA" PAROPTIONL="X"/>
+   <exception CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CHECK_PRIVATE_ADDRESS_DATA" SCONAME="ZCX_VENDOR_CONTACT_DATA_MISS" VERSION="1" LANGU="E" DESCRIPT="Vendor contact data missing" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD check_private_address_data.
+
+    IF im_private_address-country IS INITIAL.
+      RAISE EXCEPTION TYPE zcx_vendor_contact_data_miss.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;check_private_address_data</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CONSTRUCTOR" SCONAME="IM_VENDOR_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Account Number of Vendor or Creditor" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="LIFNR"/>
+   <source>METHOD constructor.
+
+  SELECT SINGLE adrnr FROM lfa1
+    INTO (me-&gt;vendor_address_number)
+    WHERE lifnr = im_vendor_number.
+
+ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_AND_GET_PERSONAL_ADDR" VERSION="1" LANGU="E" DESCRIPT="Create personal address and get the personal address number" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_AND_GET_PERSONAL_ADDR" SCONAME="IM_PERSONAL_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for person with private address" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_AND_GET_PERSONAL_ADDR" SCONAME="IM_PERSON_HANDLE" VERSION="1" LANGU="E" DESCRIPT="Handle for Creating Addresses/Persons (Bus. Addr. Services)" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="AD_HANDLE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_AND_GET_PERSONAL_ADDR" SCONAME="CH_NEW_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Change Document Structure; Generated by RSSCD000" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="FKNVK"/>
+   <source>METHOD create_and_get_personal_addr.
+
+    &quot;Building a personal address... ah yeah...
+*  CALL FUNCTION &apos;ADDR_PERSONAL_INSERT&apos;
+*    EXPORTING
+*      address_handle        = addr_handle
+*      address_personal_data = im_personal_address
+*      person_handle         = im_person_handle
+**     person_number         = ch_new_contact-prsnr
+*      person_group          = &apos;BP&apos;
+*      check_address         = &apos;X&apos;
+*    EXCEPTIONS
+*      OTHERS                = 1.
+*  IF sy-subrc &lt;&gt; 0.
+** Implement suitable error handling here
+*  ENDIF.
+
+    &quot;Will this be enough? That&apos;s crazy... right??
+
+    &quot;OF COURSE IT WASN&apos;T ENOUGH, RETARD!
+
+    &quot;We still need to get the address number
+*  Now maybe it&apos;s enough
+
+  ENDMETHOD.                    &quot;create_and_get_personal_addr</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Create business address" EXPOSURE="0" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_BUSINESS_ADDRESS" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Business vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_BUSINESS_ADDRESS" SCONAME="IM_BUSINESS_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for business telephone number, email, etc" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR1_COMPLETE" PAROPTIONL="X"/>
+   <source>METHOD create_business_address.
+
+    CHECK me-&gt;vendor_address_number IS NOT INITIAL.
+
+    DATA:
+          busi_handle TYPE ad_handle,
+          pers_ref TYPE pers_ref,
+          busi_ref TYPE addr_ref.
+
+    DATA contact_data TYPE fknvk.
+    MOVE-CORRESPONDING header_data TO contact_data.
+    build_handles_and_refs(
+      EXPORTING
+        im_new_contact = contact_data
+        im_addr_number = me-&gt;vendor_address_number
+      IMPORTING
+        ex_busi_handle = busi_handle
+        ex_pers_ref = pers_ref
+        ex_busi_ref = busi_ref
+        ).
+
+    CALL FUNCTION &apos;ADDR_INSERT&apos;
+      EXPORTING
+        address_data   = im_business_address
+        address_group  = pers_ref-pers_group
+        address_handle = busi_handle
+        check_address  = abap_false.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    IF im_business_comm-adtel_tab IS NOT INITIAL.
+
+      DATA:
+            lt_tel TYPE TABLE OF adtel,
+            ls_tel LIKE LINE OF lt_tel,
+            ls_adtel LIKE LINE OF im_business_comm-adtel_tab.
+      LOOP AT im_business_comm-adtel_tab
+        INTO ls_adtel.
+
+*        WARNING: When creating, I will always insert
+*        I don&apos;t know what happens if the CONSNUMBER is filled
+        ls_tel = ls_adtel-adtel.
+        ls_tel-updateflag = zcl_vendor_contact=&gt;constant-insert.
+        APPEND ls_tel TO lt_tel.
+
+      ENDLOOP.
+
+      CALL FUNCTION &apos;ADDR_COMM_MAINTAIN&apos;
+        EXPORTING
+          address_handle = busi_handle
+          table_type     = &apos;ADTEL&apos;
+          check_address  = abap_false
+        TABLES
+          comm_table     = lt_tel
+        EXCEPTIONS
+          OTHERS         = 5.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+    ENDIF.
+
+    IF im_business_comm-adsmtp_tab IS NOT INITIAL.
+
+      DATA:
+            lt_smtp TYPE TABLE OF adsmtp,
+            ls_smtp LIKE LINE OF lt_smtp,
+            ls_adsmtp LIKE LINE OF im_business_comm-adsmtp_tab.
+      LOOP AT im_business_comm-adsmtp_tab
+        INTO ls_adsmtp.
+
+*        WARNING: When creating, I will always insert
+*        I don&apos;t know what happens if the CONSNUMBER is filled
+        ls_smtp = ls_adsmtp-adsmtp.
+        ls_smtp-updateflag = zcl_vendor_contact=&gt;constant-insert.
+        APPEND ls_smtp TO lt_smtp.
+
+      ENDLOOP.
+
+      CALL FUNCTION &apos;ADDR_COMM_MAINTAIN&apos;
+        EXPORTING
+          address_handle = busi_handle
+          table_type     = &apos;ADSMTP&apos;
+          check_address  = abap_false
+        TABLES
+          comm_table     = lt_smtp
+        EXCEPTIONS
+          OTHERS         = 5.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_NUMBER_GET&apos;
+      EXPORTING
+        address_handle     = busi_handle
+        address_reference  = busi_ref
+        personal_address   = abap_false
+        numberrange_number = &apos;01&apos;
+      IMPORTING
+        address_number     = contact_data-adrnd
+      EXCEPTIONS
+        OTHERS             = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    &quot;Update header data as well
+    header_data-adrnd = contact_data-adrnd.
+
+    CALL FUNCTION &apos;ADDR_MEMORY_SAVE&apos;
+      EXPORTING
+        execute_in_update_task = abap_true
+      EXCEPTIONS
+        OTHERS                 = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    contact_data-kzherk = &apos;K&apos;. &quot;Vendor flag?
+    contact_data-kz = zcl_vendor_contact=&gt;constant-update.     &quot;Update
+
+    save_contact( im_contact = contact_data ).
+
+  ENDMETHOD.                    &quot;create_business_address</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Create a vendor contact" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="IM_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="This will populate KNVK and personal address fields" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="IM_COMMIT" VERSION="1" LANGU="E" DESCRIPT="Perform commit?" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="XFELD"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Private vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Business vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="IM_PERSONAL_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for personal telephone numbers, email, etc." CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR3_COMPLETE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="IM_BUSINESS_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for business telephone number, email, etc" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR1_COMPLETE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="EX_VENDOR_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Vendor contact" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_VENDOR_CONTACT"/>
+   <exception CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_CONTACT" SCONAME="ZCX_VENDOR_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Vendor Contact class exceptions" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD create_contact.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Create a Vendor Contact. This was inspired by XK02
+**********************************************************************
+
+    DATA:
+          new_contact     TYPE fknvk,
+          vendor_address  TYPE adrnr.
+
+    &quot;Check if minimum necessary data is provided
+    check_necessary_data(
+      EXPORTING
+        im_header_contact_data = im_header_contact_data
+        im_private_address = im_private_address
+        im_business_address = im_business_address
+      IMPORTING
+        ex_vendor_address = vendor_address ).
+
+    &quot;Populate the data into the new contact structure
+    new_contact = populate_data_in_new_contact( im_header_contact_data ).
+
+    &quot;Get new partner number from number range
+    get_partner_number(
+      CHANGING
+        ch_new_contact = new_contact ).
+
+    &quot;Maintain address data &quot;THIS IS THE CRAZY PART
+    maintain_address_data(
+      EXPORTING
+        im_vendor_address = vendor_address
+        im_private_address = im_private_address
+        im_business_address = im_business_address
+        im_personal_comm = im_personal_comm
+        im_business_comm = im_business_comm
+      CHANGING
+        ch_new_contact = new_contact ).
+
+    &quot;Update the database
+    save_contact( new_contact ).
+
+    IF im_commit = abap_true.
+
+      CALL FUNCTION &apos;BAPI_TRANSACTION_COMMIT&apos;
+        EXPORTING
+          wait = abap_true.
+
+      CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+        EXPORTING
+          force = abap_true.
+
+    ENDIF.
+
+    CREATE OBJECT ex_vendor_contact
+      EXPORTING
+        im_vendor_number = new_contact-lifnr.
+    MOVE-CORRESPONDING new_contact TO ex_vendor_contact-&gt;header_data.
+
+  ENDMETHOD.                    &quot;create</source>
+   <methodDocumentation OBJECT="ZCL_VENDOR_CONTACT            CREATE_CONTACT">
+    <language SPRAS="E">
+     <textLine TDFORMAT="U1" TDLINE="&amp;FUNCTIONALITY&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="This creates a new vendor contact!"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PRECONDITION&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="I don&apos;t think there&apos;s any."/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;RESULT&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="A new vendor contact gets created..."/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PARAMETERS&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="MANDATORY:"/>
+     <textLine TDFORMAT="AS" TDLINE=",,The only mandatory fields are the last name and the vendor number. You"/>
+     <textLine TDLINE="can use the commit flag if you need it."/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;EXCEPTIONS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;HINTS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+    </language>
+   </methodDocumentation>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Create private address" EXPOSURE="0" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="CREATE_PRIVATE_ADDRESS" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Private vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA"/>
+   <source>METHOD create_private_address.
+
+    CHECK me-&gt;vendor_address_number IS NOT INITIAL.
+
+    DATA:
+          pers_handle TYPE ad_handle,
+          addr_handle TYPE ad_handle,
+          addr_ref TYPE addr_ref,
+          pers_ref TYPE pers_ref.
+
+    DATA contact_data TYPE fknvk.
+    MOVE-CORRESPONDING header_data TO contact_data.
+    build_handles_and_refs(
+      EXPORTING
+        im_new_contact = contact_data
+        im_addr_number = me-&gt;vendor_address_number
+      IMPORTING
+        ex_pers_handle = pers_handle
+        ex_addr_handle = addr_handle
+        ex_addr_ref = addr_ref
+        ex_pers_ref = pers_ref
+        ).
+
+    CALL FUNCTION &apos;ADDR_PERSONAL_INSERT&apos;
+      EXPORTING
+        address_handle        = addr_handle
+        address_personal_data = im_private_address
+        person_number         = header_data-prsnr
+        person_group          = &apos;BP&apos;
+        check_address         = &apos;X&apos;
+      EXCEPTIONS
+        OTHERS                = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_NUMBER_GET&apos;
+      EXPORTING
+        address_handle    = addr_handle
+        address_reference = addr_ref
+        personal_address  = abap_true
+      IMPORTING
+        address_number    = contact_data-adrnp_2
+      EXCEPTIONS
+        OTHERS            = 4.
+    IF sy-subrc &lt;&gt; 0.
+      EXIT.
+* Implement suitable error handling here
+    ENDIF.
+
+    &quot;Update header data as well
+    header_data-adrnp_2 = contact_data-adrnp_2.
+
+*  I don&apos;t understand why we need to add the reference for
+*  the personal address, but we do
+    pers_ref-pers_addr = abap_true.
+    CLEAR pers_ref-addrnumber.
+    CALL FUNCTION &apos;ADDR_PERSON_REFERENCE_INSERT&apos;
+      EXPORTING
+        person_number    = contact_data-prsnr
+        person_reference = pers_ref.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_MEMORY_SAVE&apos;
+      EXPORTING
+        execute_in_update_task = abap_true
+      EXCEPTIONS
+        OTHERS                 = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    contact_data-kzherk = &apos;K&apos;. &quot;Vendor flag?
+    contact_data-kz = zcl_vendor_contact=&gt;constant-update.     &quot;Update
+
+    save_contact( im_contact = contact_data ).
+
+  ENDMETHOD.                    &quot;create_private_address</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Read business address data" EXPOSURE="2" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_BUSINESS_ADDRESS" SCONAME="EX_BUSINESS_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for business telephone number, email, etc" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR1_COMPLETE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_BUSINESS_ADDRESS" SCONAME="EX_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Business vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA"/>
+   <source>METHOD get_business_address.
+
+*  A contact always has a personal address,
+*  but not necessarily a business one
+
+* Does he even have a business address?
+    CHECK header_data-adrnd IS NOT INITIAL
+      AND header_data-prsnr IS NOT INITIAL.
+
+* Let&apos;s clear the address memory just in case?
+    CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+      EXPORTING
+        force = abap_true.
+
+* I think this is probably what we want anyway...
+    CALL FUNCTION &apos;ADDR_GET_COMPLETE&apos;
+      EXPORTING
+        addrnumber     = header_data-adrnd
+      IMPORTING
+        addr1_complete = ex_business_comm
+      EXCEPTIONS
+        OTHERS         = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    DATA addr1_line LIKE LINE OF ex_business_comm-addr1_tab.
+    READ TABLE ex_business_comm-addr1_tab
+      INTO addr1_line INDEX 1.
+    IF sy-subrc = 0.
+      ex_business_address = addr1_line-data.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;get_business_address</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Read a vendor contact" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT" SCONAME="IM_PARTNER_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Number of contact person" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="PARNR"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT" SCONAME="EX_VENDOR_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Vendor contact" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_VENDOR_CONTACT"/>
+   <exception CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT" SCONAME="ZCX_VENDOR_CONTACT_NEXIST" VERSION="1" LANGU="E" DESCRIPT="Vendor contact doesn&apos;t exist" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD get_contact.
+**********************************************************************
+* Author: Bruno Esperança
+* Description: Read a vendor contact
+**********************************************************************
+
+*  Select the data from the database
+    DATA contact_data TYPE knvk.
+    SELECT SINGLE * FROM knvk
+      INTO contact_data
+*      INTO CORRESPONDING FIELDS OF ex_vendor_contact-&gt;header_data
+      WHERE parnr = im_partner_number.
+    IF sy-subrc &lt;&gt; 0.
+
+      RAISE EXCEPTION TYPE zcx_vendor_contact_nexist
+        EXPORTING
+          partner_number = im_partner_number.
+
+    ENDIF.
+
+*  Create the object
+    CREATE OBJECT ex_vendor_contact
+      EXPORTING
+        im_vendor_number = contact_data-lifnr.
+
+    MOVE-CORRESPONDING contact_data TO ex_vendor_contact-&gt;header_data.
+
+  ENDMETHOD.                    &quot;GET_CONTACT</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Read contact address data" EXPOSURE="2" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT_ADDRESS" SCONAME="EX_PERSONAL_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for personal telephone numbers, email, etc." CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR3_COMPLETE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_CONTACT_ADDRESS" SCONAME="EX_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="KNVK and personal address fields" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <source>METHOD get_contact_address.
+
+    CHECK me-&gt;vendor_address_number IS NOT INITIAL.
+
+    CALL FUNCTION &apos;ADDR_PERS_COMP_GET_COMPLETE&apos;
+      EXPORTING
+        addrnumber     = me-&gt;vendor_address_number
+        persnumber     = me-&gt;header_data-prsnr
+      IMPORTING
+        addr3_complete = ex_personal_comm
+      EXCEPTIONS
+        OTHERS         = 4.
+    IF sy-subrc &lt;&gt; 0.
+      EXIT.
+* Implement suitable error handling here
+    ENDIF.
+
+    DATA:
+          converted TYPE knvk.
+
+    CALL FUNCTION &apos;CONVERT_CAM_TO_MASTER&apos;
+      EXPORTING
+        address    = ex_personal_comm
+        addr_type  = &apos;3&apos;
+        master_tab = &apos;KNVK&apos;
+      CHANGING
+        converted  = converted
+      EXCEPTIONS
+        OTHERS     = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    MOVE-CORRESPONDING converted TO ex_header_contact_data.
+
+  ENDMETHOD.                    &quot;get_private_address</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_PARTNER_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Get partner number from number range" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_PARTNER_NUMBER" SCONAME="CH_NEW_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Change Document Structure; Generated by RSSCD000" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="FKNVK"/>
+   <source>METHOD get_partner_number.
+
+    CALL FUNCTION &apos;NUMBER_GET_NEXT&apos;
+      EXPORTING
+        nr_range_nr                   = &apos;AP&apos;
+        object                        = &apos;PARTNER&apos;
+     IMPORTING
+       number                        = ch_new_contact-parnr
+*     QUANTITY                      =
+*     RETURNCODE                    =
+*   EXCEPTIONS
+*     INTERVAL_NOT_FOUND            = 1
+*     NUMBER_RANGE_NOT_INTERN       = 2
+*     OBJECT_NOT_FOUND              = 3
+*     QUANTITY_IS_0                 = 4
+*     QUANTITY_IS_NOT_1             = 5
+*     INTERVAL_OVERFLOW             = 6
+*     BUFFER_OVERFLOW               = 7
+*     OTHERS                        = 8
+              .
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+  ENDMETHOD.                    &quot;get_partner_number</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Read private address data" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="GET_PRIVATE_ADDRESS" SCONAME="EX_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Private vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="0" TYPTYPE="1" TYPE="ADDR2_DATA"/>
+   <source>METHOD get_private_address.
+
+* A contact always has a personal address, but not necessarily a private one
+
+* Does he even have a private address?
+    CHECK header_data-adrnp_2 IS NOT INITIAL
+      AND header_data-prsnr IS NOT INITIAL.
+
+* Let&apos;s clear the address memory just in case?
+    CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+      EXPORTING
+        force = abap_true.
+
+* I think this is probably what we want anyway...
+    DATA private_address_compl TYPE szadr_addr2_complete.
+    CALL FUNCTION &apos;ADDR_PERSONAL_GET_COMPLETE&apos;
+      EXPORTING
+        addrnumber     = header_data-adrnp_2
+        persnumber     = header_data-prsnr
+      IMPORTING
+        addr2_complete = private_address_compl
+      EXCEPTIONS
+        OTHERS         = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    DATA address_line LIKE LINE OF private_address_compl-addr2_tab.
+    READ TABLE private_address_compl-addr2_tab INDEX 1
+      INTO address_line.
+
+    ex_private_address = address_line-data.
+
+  ENDMETHOD.                    &quot;get_private_address</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" VERSION="1" LANGU="E" DESCRIPT="Maintain the address data for the contact" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for person with private address" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Transfer structure for person with private address" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" SCONAME="IM_PERSONAL_COMM" VERSION="1" LANGU="E" DESCRIPT="Personal communication data" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR3_COMPLETE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" SCONAME="IM_BUSINESS_COMM" VERSION="1" LANGU="E" DESCRIPT="Business communication data" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR1_COMPLETE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" SCONAME="IM_VENDOR_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Address" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADRNR"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="MAINTAIN_ADDRESS_DATA" SCONAME="CH_NEW_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Customer Master Contact Partner" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="FKNVK"/>
+   <source>METHOD maintain_address_data.
+
+    &quot;Let&apos;s clear the address memory just in case?
+    CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+      EXPORTING
+        force = abap_true.
+
+    DATA:
+          pers_handle TYPE ad_handle,
+          pers_ref TYPE pers_ref,
+          addr_handle TYPE ad_handle,
+          addr_ref TYPE addr_ref,
+          busi_handle TYPE ad_handle, &quot;business address handle
+          busi_ref TYPE addr_ref.     &quot;business address reference
+
+    build_handles_and_refs(
+      EXPORTING
+        im_new_contact = ch_new_contact
+        im_addr_number = im_vendor_address
+      IMPORTING
+        ex_pers_handle = pers_handle
+        ex_pers_ref = pers_ref
+        ex_addr_handle = addr_handle
+        ex_addr_ref = addr_ref
+        ex_busi_handle = busi_handle
+        ex_busi_ref = busi_ref ).
+
+    DATA:
+          addr3_complete TYPE szadr_addr3_complete,
+          converted TYPE knvk.
+
+    MOVE-CORRESPONDING ch_new_contact TO converted.
+
+    CALL FUNCTION &apos;CONVERT_MASTER_TO_CAM&apos;
+      EXPORTING
+        converted  = converted
+        master_tab = &apos;KNVK&apos;
+        addr_type  = &apos;3&apos;
+      CHANGING
+        address    = addr3_complete
+      EXCEPTIONS
+        OTHERS     = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    addr3_complete-addrnumber = im_vendor_address.
+    addr3_complete-pershandle = pers_handle.
+    addr3_complete-adtel_tab = im_personal_comm-adtel_tab.
+    addr3_complete-adsmtp_tab = im_personal_comm-adsmtp_tab.
+    CALL FUNCTION &apos;ADDR_PERS_COMP_MAINTAIN_COMPL&apos;
+      EXPORTING
+        updateflag     = &apos;I&apos; &quot;insert
+        addr3_complete = addr3_complete
+        person_group   = pers_ref-pers_group &quot;Business partner
+      EXCEPTIONS
+        OTHERS         = 8.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    IF im_private_address IS NOT INITIAL
+      OR im_business_address IS NOT INITIAL.
+      &quot;Building a personal address... ah yeah...
+
+      IF im_private_address IS NOT INITIAL.
+
+        CALL FUNCTION &apos;ADDR_PERSONAL_INSERT&apos;
+          EXPORTING
+            address_handle        = addr_handle
+            address_personal_data = im_private_address
+            person_handle         = pers_handle
+            person_group          = &apos;BP&apos;
+            check_address         = &apos;X&apos;
+          EXCEPTIONS
+            OTHERS                = 1.
+        IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+        ENDIF.
+      ENDIF.
+
+      IF im_business_address IS NOT INITIAL.
+
+        CALL FUNCTION &apos;ADDR_INSERT&apos;
+          EXPORTING
+            address_data   = im_business_address
+            address_group  = pers_ref-pers_group
+            address_handle = busi_handle
+            check_address  = abap_false.
+        IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+        ENDIF.
+
+        IF im_business_comm-adtel_tab IS NOT INITIAL.
+
+          DATA:
+                lt_tel TYPE TABLE OF adtel,
+                ls_tel LIKE LINE OF lt_tel,
+                ls_adtel LIKE LINE OF im_business_comm-adtel_tab.
+          LOOP AT im_business_comm-adtel_tab
+            INTO ls_adtel.
+
+            ls_tel = ls_adtel-adtel.
+            ls_tel-updateflag = &apos;I&apos;.
+            APPEND ls_tel TO lt_tel.
+
+          ENDLOOP.
+
+          CALL FUNCTION &apos;ADDR_COMM_MAINTAIN&apos;
+            EXPORTING
+              address_handle = busi_handle
+              table_type     = &apos;ADTEL&apos;
+              check_address  = abap_false
+            TABLES
+              comm_table     = lt_tel
+            EXCEPTIONS
+              OTHERS         = 5.
+          IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+          ENDIF.
+
+        ENDIF.
+
+        IF im_business_comm-adsmtp_tab IS NOT INITIAL.
+
+          DATA:
+                lt_smtp TYPE TABLE OF adsmtp,
+                ls_smtp LIKE LINE OF lt_smtp,
+                ls_adsmtp LIKE LINE OF im_business_comm-adsmtp_tab.
+          LOOP AT im_business_comm-adsmtp_tab
+            INTO ls_adsmtp.
+
+            ls_smtp = ls_adsmtp-adsmtp.
+            ls_smtp-updateflag = &apos;I&apos;.
+            APPEND ls_smtp TO lt_smtp.
+
+          ENDLOOP.
+
+          CALL FUNCTION &apos;ADDR_COMM_MAINTAIN&apos;
+            EXPORTING
+              address_handle = busi_handle
+              table_type     = &apos;ADSMTP&apos;
+              check_address  = abap_false
+            TABLES
+              comm_table     = lt_smtp
+            EXCEPTIONS
+              OTHERS         = 5.
+          IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+          ENDIF.
+
+        ENDIF.
+
+      ENDIF.
+
+      IF im_private_address IS NOT INITIAL.
+        CALL FUNCTION &apos;ADDR_NUMBER_GET&apos;
+          EXPORTING
+            address_handle    = addr_handle
+            address_reference = addr_ref
+            personal_address  = abap_true
+          IMPORTING
+            address_number    = ch_new_contact-adrnp_2
+          EXCEPTIONS
+            OTHERS            = 4.
+        IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+        ENDIF.
+
+      ENDIF.
+
+      IF im_business_address IS NOT INITIAL.
+
+        CALL FUNCTION &apos;ADDR_NUMBER_GET&apos;
+          EXPORTING
+            address_handle     = busi_handle
+            address_reference  = busi_ref
+            personal_address   = abap_false
+            numberrange_number = &apos;01&apos;
+          IMPORTING
+            address_number     = ch_new_contact-adrnd
+          EXCEPTIONS
+            OTHERS             = 4.
+        IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+        ENDIF.
+
+      ENDIF.
+
+      &quot;You have no idea how long it took me to find out
+      &quot;what had to be populated for these function
+      &quot;modules and what didn&apos;t...
+      CLEAR pers_ref-addrnumber.
+      pers_ref-pers_addr = abap_true.
+      CALL FUNCTION &apos;ADDR_PERSON_NUMBER_GET&apos;
+        EXPORTING
+          person_handle    = pers_handle
+          person_reference = pers_ref
+        IMPORTING
+          person_number    = ch_new_contact-prsnr
+        EXCEPTIONS
+          OTHERS           = 1.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+      CLEAR pers_ref-pers_addr.
+      pers_ref-addrnumber = im_vendor_address.
+      CALL FUNCTION &apos;ADDR_PERSON_REFERENCE_INSERT&apos;
+        EXPORTING
+          person_number    = ch_new_contact-prsnr
+          person_reference = pers_ref.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+    ELSE.
+      &quot;This works seamlessly when there are no extra
+      &quot;addresses to maintain
+
+      CALL FUNCTION &apos;ADDR_PERSON_NUMBER_GET&apos;
+        EXPORTING
+          person_handle    = pers_handle
+          person_reference = pers_ref
+        IMPORTING
+          person_number    = ch_new_contact-prsnr
+        EXCEPTIONS
+          OTHERS           = 1.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_MEMORY_SAVE&apos;
+      EXPORTING
+        execute_in_update_task = abap_true
+      EXCEPTIONS
+        OTHERS                 = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+  ENDMETHOD.                    &quot;maintain_address_data</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="POPULATE_DATA_IN_NEW_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Populate the data in the new contact structure" EXPOSURE="0" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="POPULATE_DATA_IN_NEW_CONTACT" SCONAME="IM_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="Header vendor/customer contact data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="POPULATE_DATA_IN_NEW_CONTACT" SCONAME="RE_NEW_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Change Document Structure; Generated by RSSCD000" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="FKNVK"/>
+   <source>METHOD populate_data_in_new_contact.
+
+    MOVE-CORRESPONDING im_header_contact_data TO re_new_contact.
+
+    re_new_contact-mandt = sy-mandt.
+    re_new_contact-erdat = sy-datum.
+    re_new_contact-ernam = sy-uname.
+    re_new_contact-kzherk = &apos;K&apos;. &quot;Vendor flag?
+    re_new_contact-kz = zcl_vendor_contact=&gt;constant-insert.     &quot;Insert
+
+  ENDMETHOD.                    &quot;populate_data_in_new_contact</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="POPULATE_EXISTING_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Populate the data in the existing contact structure" EXPOSURE="0" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="POPULATE_EXISTING_CONTACT" SCONAME="IM_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="Header vendor/customer contact data" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="POPULATE_EXISTING_CONTACT" SCONAME="RE_EXIST_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Change Document Structure; Generated by RSSCD000" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="FKNVK"/>
+   <source>METHOD populate_existing_contact.
+
+    MOVE-CORRESPONDING im_header_contact_data TO re_exist_contact.
+
+*    Some important information should never be overwritten here, right?
+    re_exist_contact-parnr = me-&gt;header_data-parnr.
+    re_exist_contact-kunnr = me-&gt;header_data-kunnr.
+
+*    The last name is ok apparently
+    re_exist_contact-adrnd = me-&gt;header_data-adrnd.
+    re_exist_contact-adrnp = me-&gt;header_data-adrnp.
+    re_exist_contact-erdat = me-&gt;header_data-erdat.
+    re_exist_contact-ernam = me-&gt;header_data-ernam.
+
+*    I have no idea what this is, but better safe than sorry
+    re_exist_contact-duefl = me-&gt;header_data-duefl.
+
+*    This would definitely be a bad idea
+    re_exist_contact-lifnr = me-&gt;header_data-lifnr.
+
+*    The deletion flag... do I care about this?
+    re_exist_contact-loevm = me-&gt;header_data-loevm.
+
+    re_exist_contact-kzherk = me-&gt;header_data-kzherk. &quot;Vendor flag?
+    re_exist_contact-adrnp_2 = me-&gt;header_data-adrnp_2.
+    re_exist_contact-prsnr = me-&gt;header_data-prsnr.
+    re_exist_contact-kz = zcl_vendor_contact=&gt;constant-update.     &quot;Update
+
+  ENDMETHOD.                    &quot;populate_data_in_new_contact</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SAVE_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Save contact in database" EXPOSURE="0" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SAVE_CONTACT" SCONAME="IM_CONTACT" VERSION="1" LANGU="E" DESCRIPT="Change Document Structure; Generated by RSSCD000" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="FKNVK"/>
+   <source>METHOD save_contact.
+
+    DATA contact_table TYPE TABLE OF fknvk.
+
+    APPEND im_contact TO contact_table.
+
+    CALL FUNCTION &apos;VENDOR_ASSORTMENT_UPDATE&apos; IN UPDATE TASK
+      TABLES
+        t_knvk = contact_table[].
+
+  ENDMETHOD.                    &quot;save_contact</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Set business address data" EXPOSURE="2" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_BUSINESS_ADDRESS" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Business vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_BUSINESS_ADDRESS" SCONAME="IM_COMMIT" VERSION="1" LANGU="E" DESCRIPT="Perform commit?" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="XFELD"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_BUSINESS_ADDRESS" SCONAME="IM_BUSINESS_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for business telephone number, email, etc" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR1_COMPLETE" PAROPTIONL="X"/>
+   <source>METHOD set_business_address.
+
+    &quot;If the address already exists, we are changing it
+    &quot;If not, we have to create a new one
+
+*  Check the data
+    check_business_address_data(
+      EXPORTING
+        im_business_address = im_business_address ).
+
+* Let&apos;s clear the address memory just in case?
+    CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+      EXPORTING
+        force = abap_true.
+
+    IF header_data-adrnd IS NOT INITIAL.
+
+      update_business_address(
+        EXPORTING
+          im_business_address = im_business_address    &quot; Business vendor contact address details
+          im_business_comm    = im_business_comm    &quot; Use this for business telephone number, email, etc
+      ).
+
+    ELSE.
+
+      create_business_address(
+        EXPORTING
+          im_business_address = im_business_address    &quot; Business vendor contact address details
+          im_business_comm    = im_business_comm    &quot; Use this for business telephone number, email, etc
+      ).
+
+    ENDIF.
+
+    IF im_commit = abap_true.
+
+      CALL FUNCTION &apos;BAPI_TRANSACTION_COMMIT&apos;
+        EXPORTING
+          wait = abap_true.
+
+      CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+        EXPORTING
+          force = abap_true.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;set_business_address</source>
+   <methodDocumentation OBJECT="ZCL_VENDOR_CONTACT            SET_BUSINESS_ADDRESS">
+    <language SPRAS="E">
+     <textLine TDFORMAT="U1" TDLINE="&amp;FUNCTIONALITY&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="This sets a new business address or changes an existing one."/>
+     <textLine TDFORMAT="AS" TDLINE="As for the private address one, a word of advice, first get the existing"/>
+     <textLine TDLINE="business address using GET_BUSINESS_ADDRESS."/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="AS" TDLINE="The communication logic is very tricky. If you don&apos;t populate the"/>
+     <textLine TDLINE="CONSNUMBER field, it will always insert a new communication method. If"/>
+     <textLine TDLINE="you want to update, populate it."/>
+     <textLine TDFORMAT="AS" TDLINE="To delete, you must populate both the CONSNUMBER and UPDATEFLAG. Good"/>
+     <textLine TDLINE="luck."/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PRECONDITION&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;RESULT&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PARAMETERS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;EXCEPTIONS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;HINTS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+    </language>
+   </methodDocumentation>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_CONTACT_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Set contact address data" EXPOSURE="2" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_CONTACT_ADDRESS" SCONAME="IM_COMMIT" VERSION="1" LANGU="E" DESCRIPT="Perform commit?" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="XFELD"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_CONTACT_ADDRESS" SCONAME="IM_PERSONAL_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for personal telephone numbers, email, etc." CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR3_COMPLETE"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_CONTACT_ADDRESS" SCONAME="IM_HEADER_CONTACT_DATA" VERSION="1" LANGU="E" DESCRIPT="KNVK and personal address fields" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SI_KNVK"/>
+   <source>METHOD set_contact_address.
+
+*  Check the data
+    check_contact_data(
+      EXPORTING
+        im_header_contact_data = im_header_contact_data    &quot; Header vendor/customer contact data
+    ).
+
+*    Populate data in the existing contact data
+    DATA update_contact TYPE fknvk.
+    update_contact = populate_existing_contact( im_header_contact_data ).
+
+    DATA:
+          addr3_complete TYPE szadr_addr3_complete,
+          converted TYPE knvk.
+
+    MOVE-CORRESPONDING update_contact TO converted.
+
+    CALL FUNCTION &apos;CONVERT_MASTER_TO_CAM&apos;
+      EXPORTING
+        converted  = converted
+        master_tab = &apos;KNVK&apos;
+        addr_type  = &apos;3&apos;
+      CHANGING
+        address    = addr3_complete
+      EXCEPTIONS
+        OTHERS     = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+    CLEAR: addr3_complete-addrhandle, addr3_complete-pershandle. &quot;Just in case someone tries something funny
+    addr3_complete-addrnumber = me-&gt;vendor_address_number.
+    addr3_complete-persnumber = me-&gt;header_data-prsnr.
+
+    &quot;Inserting or updating?
+    DATA adtel_line LIKE LINE OF addr3_complete-adtel_tab.
+    LOOP AT im_personal_comm-adtel_tab
+      INTO adtel_line.
+      IF adtel_line-adtel-updateflag IS INITIAL.
+        IF adtel_line-adtel-consnumber IS INITIAL. &quot;No sequence number, it&apos;s a new number?
+          adtel_line-adtel-updateflag = zcl_vendor_contact=&gt;constant-insert.
+        ELSE.
+          adtel_line-adtel-updateflag = zcl_vendor_contact=&gt;constant-update.
+        ENDIF.
+      ENDIF.
+      APPEND adtel_line TO addr3_complete-adtel_tab.
+    ENDLOOP.
+
+    DATA adsmtp_line LIKE LINE OF addr3_complete-adsmtp_tab.
+    LOOP AT im_personal_comm-adsmtp_tab
+      INTO adsmtp_line.
+      IF adsmtp_line-adsmtp-updateflag IS INITIAL.
+        IF adsmtp_line-adsmtp-consnumber IS INITIAL. &quot;No sequence number, it&apos;s a new number?
+          adsmtp_line-adsmtp-updateflag = zcl_vendor_contact=&gt;constant-insert.
+        ELSE.
+          adsmtp_line-adsmtp-updateflag = zcl_vendor_contact=&gt;constant-update.
+        ENDIF.
+      ENDIF.
+      APPEND adsmtp_line TO addr3_complete-adsmtp_tab.
+    ENDLOOP.
+
+    CALL FUNCTION &apos;ADDR_PERS_COMP_MAINTAIN_COMPL&apos;
+      EXPORTING
+        updateflag     = zcl_vendor_contact=&gt;constant-update &quot;update
+        addr3_complete = addr3_complete
+        person_group   = zcl_vendor_contact=&gt;constant-business_partner &quot;Business partner
+      EXCEPTIONS
+        OTHERS         = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_MEMORY_SAVE&apos;
+      EXPORTING
+        execute_in_update_task = abap_true
+      EXCEPTIONS
+        OTHERS                 = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    &quot;Update the database
+    save_contact( update_contact ).
+
+    IF im_commit = abap_true.
+
+      CALL FUNCTION &apos;BAPI_TRANSACTION_COMMIT&apos;
+        EXPORTING
+          wait = abap_true.
+
+*    I do this just for fun
+      CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+        EXPORTING
+          force = abap_true.
+
+    ENDIF.
+
+    MOVE-CORRESPONDING update_contact TO me-&gt;header_data.
+
+  ENDMETHOD.                    &quot;set_private_address</source>
+   <methodDocumentation OBJECT="ZCL_VENDOR_CONTACT            SET_CONTACT_ADDRESS">
+    <language SPRAS="E">
+     <textLine TDFORMAT="U1" TDLINE="&amp;FUNCTIONALITY&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="This sets a new private address or changes an existing one."/>
+     <textLine TDFORMAT="AS" TDLINE="Word of advice, first get the existing private address using"/>
+     <textLine TDLINE="GET_PRIVATE_ADDRESS."/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PRECONDITION&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;RESULT&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PARAMETERS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;EXCEPTIONS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;HINTS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+    </language>
+   </methodDocumentation>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Set private address data" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_PRIVATE_ADDRESS" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Private vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="SET_PRIVATE_ADDRESS" SCONAME="IM_COMMIT" VERSION="1" LANGU="E" DESCRIPT="Perform commit?" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="XFELD"/>
+   <source>METHOD set_private_address.
+
+*    If the address already exists, we are changing it
+*    If not, we have to create a new one
+
+*  Check the data
+    check_private_address_data(
+      EXPORTING
+        im_private_address = im_private_address ).
+
+* Let&apos;s clear the address memory just in case?
+    CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+      EXPORTING
+        force = abap_true.
+
+    IF header_data-adrnp_2 IS NOT INITIAL.
+
+      update_private_address( im_private_address ).
+
+    ELSE.
+
+      create_private_address( im_private_address ).
+
+    ENDIF.
+
+    IF im_commit = abap_true.
+
+      CALL FUNCTION &apos;BAPI_TRANSACTION_COMMIT&apos;
+        EXPORTING
+          wait = abap_true.
+
+*    I do this just for fun
+      CALL FUNCTION &apos;ADDR_MEMORY_CLEAR&apos;
+        EXPORTING
+          force = abap_true.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;set_private_address</source>
+   <methodDocumentation OBJECT="ZCL_VENDOR_CONTACT            SET_PRIVATE_ADDRESS">
+    <language SPRAS="E">
+     <textLine TDFORMAT="U1" TDLINE="&amp;FUNCTIONALITY&amp;"/>
+     <textLine TDFORMAT="AS" TDLINE="This sets a new private address or changes an existing one."/>
+     <textLine TDFORMAT="AS" TDLINE="Word of advice, first get the existing private address using"/>
+     <textLine TDLINE="GET_PRIVATE_ADDRESS."/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PRECONDITION&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;RESULT&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;PARAMETERS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;EXCEPTIONS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+     <textLine TDFORMAT="U1" TDLINE="&amp;HINTS&amp;"/>
+     <textLine TDFORMAT="AS"/>
+    </language>
+   </methodDocumentation>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="UPDATE_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Update business address" EXPOSURE="0" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="UPDATE_BUSINESS_ADDRESS" SCONAME="IM_BUSINESS_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Business vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR1_DATA"/>
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="UPDATE_BUSINESS_ADDRESS" SCONAME="IM_BUSINESS_COMM" VERSION="1" LANGU="E" DESCRIPT="Use this for business telephone number, email, etc" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SZADR_ADDR1_COMPLETE" PAROPTIONL="X"/>
+   <source>METHOD update_business_address.
+
+    CALL FUNCTION &apos;ADDR_UPDATE&apos;
+      EXPORTING
+        address_data   = im_business_address
+        address_number = header_data-adrnd
+        check_address  = abap_false
+      EXCEPTIONS
+        OTHERS         = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    IF im_business_comm-adtel_tab IS NOT INITIAL.
+
+      DATA:
+            lt_tel TYPE TABLE OF adtel,
+            ls_tel LIKE LINE OF lt_tel,
+            ls_adtel LIKE LINE OF im_business_comm-adtel_tab.
+      LOOP AT im_business_comm-adtel_tab
+        INTO ls_adtel.
+
+*        WARNING: If the &quot;phone number ID&quot; is filled, it will
+*        update, if not, it will insert. If you fill the number
+*        and it doesn&apos;t exist, you will probably break the
+*        space-time continuum
+        ls_tel = ls_adtel-adtel.
+        IF ls_tel-updateflag IS INITIAL.
+          IF ls_tel-consnumber IS INITIAL.
+            ls_tel-updateflag = zcl_vendor_contact=&gt;constant-insert.
+          ELSE.
+            ls_tel-updateflag = zcl_vendor_contact=&gt;constant-update.
+          ENDIF.
+        ENDIF.
+        APPEND ls_tel TO lt_tel.
+
+      ENDLOOP.
+
+      CALL FUNCTION &apos;ADDR_COMM_MAINTAIN&apos;
+        EXPORTING
+          address_number = header_data-adrnd
+          table_type     = &apos;ADTEL&apos;
+          check_address  = abap_false
+        TABLES
+          comm_table     = lt_tel
+        EXCEPTIONS
+          OTHERS         = 5.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+    ENDIF.
+
+    IF im_business_comm-adsmtp_tab IS NOT INITIAL.
+
+      DATA:
+            lt_smtp TYPE TABLE OF adsmtp,
+            ls_smtp LIKE LINE OF lt_smtp,
+            ls_adsmtp LIKE LINE OF im_business_comm-adsmtp_tab.
+      LOOP AT im_business_comm-adsmtp_tab
+        INTO ls_adsmtp.
+
+*        WARNING: If the &quot;phone number ID&quot; is filled, it will
+*        update, if not, it will insert. If you fill the number
+*        and it doesn&apos;t exist, you will probably break the
+*        space-time continuum
+        ls_smtp = ls_adsmtp-adsmtp.
+        IF ls_smtp-updateflag IS INITIAL.
+          IF ls_smtp-consnumber IS INITIAL.
+            ls_smtp-updateflag = zcl_vendor_contact=&gt;constant-insert.
+          ELSE.
+            ls_smtp-updateflag = zcl_vendor_contact=&gt;constant-update.
+          ENDIF.
+        ENDIF.
+        APPEND ls_smtp TO lt_smtp.
+
+      ENDLOOP.
+
+      CALL FUNCTION &apos;ADDR_COMM_MAINTAIN&apos;
+        EXPORTING
+          address_number = header_data-adrnd
+          table_type     = &apos;ADSMTP&apos;
+          check_address  = abap_false
+        TABLES
+          comm_table     = lt_smtp
+        EXCEPTIONS
+          OTHERS         = 5.
+      IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      ENDIF.
+
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_MEMORY_SAVE&apos;
+      EXPORTING
+        execute_in_update_task = abap_true
+      EXCEPTIONS
+        OTHERS                 = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;update_business_address</source>
+  </method>
+  <method CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="UPDATE_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Update private address" EXPOSURE="0" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_VENDOR_CONTACT" CMPNAME="UPDATE_PRIVATE_ADDRESS" SCONAME="IM_PRIVATE_ADDRESS" VERSION="1" LANGU="E" DESCRIPT="Private vendor contact address details" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ADDR2_DATA"/>
+   <source>METHOD update_private_address.
+
+    CALL FUNCTION &apos;ADDR_PERSONAL_UPDATE&apos;
+      EXPORTING
+        address_number        = header_data-adrnp_2
+        address_personal_data = im_private_address
+        person_number         = header_data-prsnr
+        check_address         = abap_false
+      EXCEPTIONS
+        OTHERS                = 4.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+    CALL FUNCTION &apos;ADDR_MEMORY_SAVE&apos;
+      EXPORTING
+        execute_in_update_task = abap_true
+      EXCEPTIONS
+        OTHERS                 = 1.
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+      EXIT.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;update_private_address</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_VENDOR_CONTACT_DATA_MISS" VERSION="1" LANGU="E" DESCRIPT="Vendor contact data missing" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_VENDOR_CONTACT">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_VENDOR_CONTACT_DATA_MISS" CMPNAME="ZCX_VENDOR_CONTACT_DATA_MISS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Not enough data to create a vendor contact."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_VENDOR_CONTACT_DATA_MISS" REFCLSNAME="ZCX_VENDOR_CONTACT" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_VENDOR_CONTACT_NEXIST" VERSION="1" LANGU="E" DESCRIPT="Vendor contact doesn&apos;t exist" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_VENDOR_CONTACT">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_VENDOR_CONTACT_NEXIST" CMPNAME="ZCX_VENDOR_CONTACT_NEXIST" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Vendor contact &amp;PARTNER_NUMBER&amp; doesn&apos;t exist."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_VENDOR_CONTACT_NEXIST" REFCLSNAME="ZCX_VENDOR_CONTACT" VERSION="1" STATE="1"/>
+ </CLAS>
+</nugget>
