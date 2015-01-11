@@ -25,3 +25,8 @@ ZCL_UTILS
 Miscellaneous utility class with conversions, etc.
 
 ***********************************************************
+
+ZCL_FILE_READER
+
+This reads any file (at the moment CSV, XLS and XLSX are implemented)
+and imports the data into a table, converting from external to internal

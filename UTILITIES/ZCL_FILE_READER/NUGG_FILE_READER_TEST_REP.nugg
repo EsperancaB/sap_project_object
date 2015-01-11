@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="FILE_READER_TEST_REP">
+ <PROG NAME="ZZZ_TEST_XLS_READER" VARCL="X" SUBC="1" RMAND="077" RLOAD="E" FIXPT="X" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Testing it" LENGTH="10 "/>
+   </language>
+  </textPool>
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZZZ_TEST_XLS_READER
+*&amp;
+*&amp;---------------------------------------------------------------------*
+*&amp;
+*&amp;
+*&amp;---------------------------------------------------------------------*
+
+REPORT zzz_test_xls_reader.
+
+*Reference variable
+*File path
+DATA lv_file_path TYPE localfile VALUE &apos;something_to_text.xls&apos;.
+
+BREAK-POINT.
+
+DATA lr_error TYPE REF TO cx_root.
+
+TYPES:
+      BEGIN OF table_type,
+        matnr TYPE matnr,
+        amount TYPE kbetr,
+        unit TYPE meins,
+        date TYPE sydatum,
+      END OF table_type.
+
+DATA lt_table TYPE TABLE OF table_type.
+
+TRY .
+
+    zcl_file_reader=&gt;read_file(
+      EXPORTING
+        im_skip_first_line = abap_true
+      CHANGING
+        ch_table = lt_table
+    ).
+*  CATCH zcx_no_file_path.  &quot; No file path error
+
+  CATCH cx_root INTO lr_error.
+
+    DATA msg TYPE string.
+    msg = lr_error-&gt;get_text( ).
+    MESSAGE msg TYPE &apos;S&apos;.
+
+ENDTRY.
+
+BREAK-POINT.</source>
+ </PROG>
+</nugget>
