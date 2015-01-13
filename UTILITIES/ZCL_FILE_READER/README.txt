@@ -22,3 +22,16 @@ Navigate to the package and activate everything.
 4 (optional) - Install file NUGG_FILE_READER_TEST_REP. This contains a DEMO
 report to exemplify how the file reading class works. Use any of the demo
 files, sit back, relax and enjoy the show.
+
+*********************************************************
+
+Known issues
+
+- If your system doesn't have the LINES function, you will get a syntax error
+  in class ZCL_FILE_READER, method GET_EXTENSION, line 8. You will have to
+  revert to old statement DESCRIBE TABLE (thanks to Stephen Herlick).
+  
+- You might run into trouble also with this kind of syntax:
+  zcl_xls_reader=>translate_to_upper( zcl_xls_reader=>get_file_extension( filename_str ) ) 
+  You will need to break it up into individual lines (thanks to Stephen Herlick).
+  
