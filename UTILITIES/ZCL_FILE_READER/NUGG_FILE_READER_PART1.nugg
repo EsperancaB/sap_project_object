@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <nugget name="FILE_READER_PART1">
+<<<<<<< HEAD
  <CLAS CLSNAME="Z_CL_FILE_READER_EXECUTE_XLSX" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_EXECUTE_XLSX" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <implementing CLSNAME="Z_CL_FILE_READER_EXECUTE_XLSX" REFCLSNAME="Z_IF_FILE_READER_EXECUTE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -272,6 +273,9 @@ ENDMETHOD.</source>
   </interfaceMethod>
  </CLAS>
  <CLAS CLSNAME="ZCX_ERROR_READING_FILE" VERSION="1" LANGU="E" DESCRIPT="Error reading the file" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+=======
+ <CLAS CLSNAME="ZCL_XLS_READER" VERSION="1" LANGU="E" DESCRIPT="Read an XLS file" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+>>>>>>> origin/master
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -280,6 +284,7 @@ ENDMETHOD.</source>
 *&quot;* components in the private section</localTypes>
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
+<<<<<<< HEAD
   <attribute CLSNAME="ZCX_ERROR_READING_FILE" CMPNAME="ZCX_ERROR_READING_FILE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
    <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
     <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error reading the file"/>
@@ -331,6 +336,16 @@ ENDMETHOD.</source>
 *&quot;* in the implementation part of the class</localMacros>
   <interfaceMethod CLSNAME="Z_CL_FILE_READER_CONV_NUMBER" CPDNAME="Z_IF_FILE_READER_TYPE_CONV~CONVERT_TYPE">
    <source>METHOD z_if_file_reader_type_conv~convert_type.
+=======
+  <typeUsage CLSNAME="ZCL_XLS_READER" TYPEGROUP="ABAP" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
+  <forwardDeclaration>ABAP</forwardDeclaration>
+  <attribute CLSNAME="ZCL_XLS_READER" CMPNAME="FILENAME" VERSION="1" LANGU="E" DESCRIPT="Local file for upload/download" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LOCALFILE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_XLS_READER" CMPNAME="XLS_EXT" VERSION="1" LANGU="E" DESCRIPT="XLS extension" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;XLS&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_XLS_READER" CMPNAME="CREATE_CHAR_LIKE_TABLE" VERSION="1" LANGU="E" DESCRIPT="Create char like table" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_XLS_READER" CMPNAME="CREATE_CHAR_LIKE_TABLE" SCONAME="IM_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+   <parameter CLSNAME="ZCL_XLS_READER" CMPNAME="CREATE_CHAR_LIKE_TABLE" SCONAME="RE_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="DATA"/>
+   <source>METHOD create_char_like_table.
+>>>>>>> origin/master
 
   CALL FUNCTION &apos;MOVE_CHAR_TO_NUM&apos;
     EXPORTING
@@ -597,7 +612,12 @@ ENDMETHOD.</source>
 ENDMETHOD.</source>
   </method>
   <method CLSNAME="ZCL_XLS_READER" CMPNAME="READ_FILE" VERSION="1" LANGU="E" DESCRIPT="Read the xls file" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+<<<<<<< HEAD
    <parameter CLSNAME="ZCL_XLS_READER" CMPNAME="READ_FILE" SCONAME="CH_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+=======
+   <parameter CLSNAME="ZCL_XLS_READER" CMPNAME="READ_FILE" SCONAME="IM_SKIP_FIRST_LINE" VERSION="1" LANGU="E" DESCRIPT="Skip first line" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="XFELD" PARVALUE="ABAP_FALSE"/>
+   <parameter CLSNAME="ZCL_XLS_READER" CMPNAME="READ_FILE" SCONAME="CH_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+>>>>>>> origin/master
    <source>**********************************************************************
 * Author: Bruno Esperança
 * Date: 23.12.2014 (while watching Thor... I had seen it already)
@@ -610,6 +630,10 @@ METHOD read_file.
   me-&gt;populate_tab_from_excel(
     EXPORTING
       im_filename = me-&gt;filename    &quot; Local file for upload/download
+<<<<<<< HEAD
+=======
+      im_skip_first_line = im_skip_first_line
+>>>>>>> origin/master
     CHANGING
       ch_table    = ch_table
   ).
@@ -626,6 +650,89 @@ ENDMETHOD.</source>
 
 ENDMETHOD.</source>
   </method>
+<<<<<<< HEAD
+=======
+ </CLAS>
+ <CLAS CLSNAME="ZCX_FILE_READER" VERSION="1" LANGU="E" DESCRIPT="File reading class exceptions" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CX_DYNAMIC_CHECK">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_FILE_READER" CMPNAME="ZCX_FILE_READER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error occurred reading file."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_FILE_READER" REFCLSNAME="CX_DYNAMIC_CHECK" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_NO_FILE_PATH" VERSION="1" LANGU="E" DESCRIPT="No file path error" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_NO_FILE_PATH" CMPNAME="ZCX_NO_FILE_PATH" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="File name is empty"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_NO_FILE_PATH" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_WRONG_EXTENSION" VERSION="1" LANGU="E" DESCRIPT="Wrong file extension" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_WRONG_EXTENSION" CMPNAME="ZCX_WRONG_EXTENSION" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Wrong file extension"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_WRONG_EXTENSION" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_NOT_A_TABLE" VERSION="1" LANGU="E" DESCRIPT="That&apos;s... not a table" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_NOT_A_TABLE" CMPNAME="ZCX_NOT_A_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="That doesn&apos;t look like a table..."/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_NOT_A_TABLE" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_ERROR_READING_FILE" VERSION="1" LANGU="E" DESCRIPT="Error reading the file" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_ERROR_READING_FILE" CMPNAME="ZCX_ERROR_READING_FILE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Error reading the file"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_ERROR_READING_FILE" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+>>>>>>> origin/master
  </CLAS>
  <CLAS CLSNAME="ZCL_FILE_READER" VERSION="1" LANGU="E" DESCRIPT="File reader" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -645,6 +752,7 @@ ENDMETHOD.</source>
    <source>METHOD call_conversion_exit.
 
 *  Just found out something interesting...
+<<<<<<< HEAD
 *  For conversion exit ALPHA
 *  if the input field&apos;s contents are longer than the output
 *  field&apos;s length, this fails miserably, so it needs to be
@@ -660,6 +768,20 @@ ENDMETHOD.</source>
 *    This can&apos;t be good
       RAISE EXCEPTION TYPE zcx_conversion_error.
     ENDIF.
+=======
+*  If the input field&apos;s contents are longer than the output
+*  field&apos;s length, this fails miserably, so it needs to be
+*  checked...
+  DATA input_length TYPE i.
+  input_length = strlen( im_input_field ).
+
+  DATA elemdescr TYPE REF TO cl_abap_elemdescr.
+  elemdescr ?= cl_abap_typedescr=&gt;describe_by_data( ex_output_field ).
+
+  IF input_length &gt; elemdescr-&gt;output_length.
+*    This can&apos;t be good
+    RAISE EXCEPTION TYPE zcx_conversion_error.
+>>>>>>> origin/master
   ENDIF.
 
 *    Build function module name
@@ -1045,6 +1167,228 @@ ENDMETHOD.</source>
 ENDMETHOD.</source>
   </method>
  </CLAS>
+<<<<<<< HEAD
+ <CLAS CLSNAME="ZCL_CSV_READER" VERSION="1" LANGU="E" DESCRIPT="Read a CSV file" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+=======
+ <CLAS CLSNAME="Z_CL_FILE_READER_EXECUTE_XLS" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_EXECUTE_XLS" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="Z_CL_FILE_READER_EXECUTE_XLS" REFCLSNAME="Z_IF_FILE_READER_EXECUTE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <interfaceMethod CLSNAME="Z_CL_FILE_READER_EXECUTE_XLS" CPDNAME="Z_IF_FILE_READER_EXECUTE~READ_FILE">
+   <source>**********************************************************************
+* Author: Bruno Esperança
+* Date: 23.12.2014 (while watching the final table of the 2014 PCA
+*                   Super High Roller)
+**********************************************************************
+METHOD z_if_file_reader_execute~read_file.
+
+  DATA lr_xls_reader TYPE REF TO zcl_xls_reader.
+  DATA localfile TYPE localfile.
+  localfile = im_filename.
+
+  TRY.
+      lr_xls_reader = zcl_xls_reader=&gt;create_instance( localfile ).
+    CATCH zcx_file_reader.
+*      Just abort?
+      EXIT.
+  ENDTRY.
+
+  lr_xls_reader-&gt;read_file(
+    EXPORTING
+      im_skip_first_line = im_skip_first_line
+    CHANGING
+      ch_table = ch_table
+  ).
+
+ENDMETHOD.</source>
+  </interfaceMethod>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_READER_NOT_IMPLEMENTED" VERSION="1" LANGU="E" DESCRIPT="File reader not implemented for this extension" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_READER_NOT_IMPLEMENTED" CMPNAME="ZCX_READER_NOT_IMPLEMENTED" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="File reader not implemented for this extension"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_READER_NOT_IMPLEMENTED" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_FATAL_ERROR" VERSION="1" LANGU="E" DESCRIPT="Fatal error" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_FATAL_ERROR" CMPNAME="ZCX_FATAL_ERROR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Fatal error"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_FATAL_ERROR" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_CONVERSION_ERROR" VERSION="1" LANGU="E" DESCRIPT="Field conversion error" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCX_FILE_READER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCX_CONVERSION_ERROR" CMPNAME="ZCX_CONVERSION_ERROR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SOTR_CONC" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " LOCKED="X" TYPESRC_LENG="0 ">
+   <sotr PAKET="$TMP" CREA_LAN="E" TRALA_TYPE="1" LST_IMPORT="00000000" TRALA_VEC="00000000000000000000" CATGY_VEC="00000000000000000000" OBJID_VEC="08000000000000000000">
+    <sotrText LANGU="E" LFD_NUM="0001" FLAG_CNTXT="X" STATUS="R" VERSION="0002" LENGTH="255" TEXT="Field conversion error"/>
+   </sotr>
+  </attribute>
+  <inheritance CLSNAME="ZCX_CONVERSION_ERROR" REFCLSNAME="ZCX_FILE_READER" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="Z_CL_FILE_READER_EXECUTE_XLSX" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_EXECUTE_XLSX" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="Z_CL_FILE_READER_EXECUTE_XLSX" REFCLSNAME="Z_IF_FILE_READER_EXECUTE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+>>>>>>> origin/master
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+<<<<<<< HEAD
+  <typeUsage CLSNAME="ZCL_CSV_READER" TYPEGROUP="ABAP" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
+  <forwardDeclaration>ABAP</forwardDeclaration>
+  <attribute CLSNAME="ZCL_CSV_READER" CMPNAME="CSV_EXT" VERSION="1" LANGU="E" DESCRIPT="CSV extension" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;CSV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_CSV_READER" CMPNAME="FILENAME" VERSION="1" LANGU="E" DESCRIPT="Local file for upload/download" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_CSV_READER" CMPNAME="CREATE_CHAR_LIKE_TABLE" VERSION="1" LANGU="E" DESCRIPT="Create char like table" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_CSV_READER" CMPNAME="CREATE_CHAR_LIKE_TABLE" SCONAME="IM_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TABLE"/>
+   <parameter CLSNAME="ZCL_CSV_READER" CMPNAME="CREATE_CHAR_LIKE_TABLE" SCONAME="RE_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="DATA"/>
+   <source>METHOD CREATE_CHAR_LIKE_TABLE.
+=======
+  <interfaceMethod CLSNAME="Z_CL_FILE_READER_EXECUTE_XLSX" CPDNAME="Z_IF_FILE_READER_EXECUTE~READ_FILE">
+   <source>**********************************************************************
+* Author: Bruno Esperança
+* Date: 24.12.2014 (watching The Wolf of Wallstreet)
+**********************************************************************
+METHOD z_if_file_reader_execute~read_file.
+>>>>>>> origin/master
+
+  DATA excel TYPE REF TO zcl_excel.
+  DATA reader TYPE REF TO zif_excel_reader.
+
+  TRY .
+
+      CREATE OBJECT reader TYPE zcl_excel_reader_2007.
+
+      excel = reader-&gt;load_file( im_filename ).
+
+*  Get the active worksheet
+      DATA:
+            worksheet      TYPE REF TO zcl_excel_worksheet,
+            highest_column TYPE zexcel_cell_column,
+            highest_row    TYPE int4,
+            column         TYPE zexcel_cell_column VALUE 1,
+            col_str        TYPE zexcel_cell_column_alpha,
+            row            TYPE int4               VALUE 1,
+            value          TYPE zexcel_cell_value.
+      IF im_skip_first_line = abap_true.
+        ADD 1 TO row.
+      ENDIF.
+
+      worksheet = excel-&gt;get_active_worksheet( ).
+      highest_column = worksheet-&gt;get_highest_column( ).
+      highest_row    = worksheet-&gt;get_highest_row( ).
+
+*  Let&apos;s get a pointer to a line of the char like table, shall we?
+      DATA line_ref TYPE REF TO data.
+      CREATE DATA line_ref LIKE LINE OF ch_table.
+      FIELD-SYMBOLS &lt;output_line&gt; TYPE any.
+      ASSIGN line_ref-&gt;* TO &lt;output_line&gt;.
+
+      FIELD-SYMBOLS &lt;output_field&gt; TYPE any.
+
+      WHILE row &lt;= highest_row.
+        WHILE column &lt;= highest_column.
+
+          ASSIGN COMPONENT column OF STRUCTURE &lt;output_line&gt; TO &lt;output_field&gt;.
+          IF sy-subrc &lt;&gt; 0.
+*        Should we ignore this?? I think so!!
+*        RAISE EXCEPTION TYPE zcx_fatal_error.
+            EXIT.
+          ENDIF.
+          col_str = zcl_excel_common=&gt;convert_column2alpha( column ).
+          worksheet-&gt;get_cell(
+            EXPORTING
+              ip_column = col_str
+              ip_row    = row
+            IMPORTING
+              ep_value = value
+          ).
+          &lt;output_field&gt; = value.
+          column = column + 1.
+        ENDWHILE.
+        column = 1.
+        row = row + 1.
+        INSERT &lt;output_line&gt; INTO TABLE ch_table.
+        CLEAR &lt;output_line&gt;.
+      ENDWHILE.
+
+    CATCH zcx_excel.
+*        What to do??
+      CLEAR ch_table.
+  ENDTRY.
+
+
+ENDMETHOD.</source>
+  </interfaceMethod>
+ </CLAS>
+ <CLAS CLSNAME="Z_CL_FILE_READER_EXECUTE_CSV" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_EXECUTE_CSV" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="Z_CL_FILE_READER_EXECUTE_CSV" REFCLSNAME="Z_IF_FILE_READER_EXECUTE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <interfaceMethod CLSNAME="Z_CL_FILE_READER_EXECUTE_CSV" CPDNAME="Z_IF_FILE_READER_EXECUTE~READ_FILE">
+   <source>**********************************************************************
+* Author: Bruno Esperança
+* Date: 28.12.2014
+**********************************************************************
+METHOD z_if_file_reader_execute~read_file.
+
+  DATA lr_csv_reader TYPE REF TO zcl_csv_reader.
+  DATA localfile TYPE string.
+  lr_csv_reader = zcl_csv_reader=&gt;create_instance( im_filename ).
+*    CATCH zcx_no_file_path.  &quot; No file path error
+*    CATCH zcx_wrong_extension.  &quot; Wrong file extension
+
+  lr_csv_reader-&gt;read_file(
+    EXPORTING
+      im_skip_first_line = im_skip_first_line
+      im_field_separator = im_field_separator
+    CHANGING
+      ch_table = ch_table
+  ).
+
+ENDMETHOD.</source>
+  </interfaceMethod>
+ </CLAS>
  <CLAS CLSNAME="ZCL_CSV_READER" VERSION="1" LANGU="E" DESCRIPT="Read a CSV file" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
@@ -1279,8 +1623,13 @@ ENDMETHOD.</source>
 ENDMETHOD.</source>
   </method>
  </CLAS>
+<<<<<<< HEAD
  <CLAS CLSNAME="Z_CL_FILE_READER_EXECUTE_XML" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_EXECUTE_XML" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <implementing CLSNAME="Z_CL_FILE_READER_EXECUTE_XML" REFCLSNAME="Z_IF_FILE_READER_EXECUTE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+=======
+ <CLAS CLSNAME="Z_CL_FILE_READER_CONV_DATE" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_CONV_DATE" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="Z_CL_FILE_READER_CONV_DATE" REFCLSNAME="Z_IF_FILE_READER_TYPE_CONV" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+>>>>>>> origin/master
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -1289,6 +1638,7 @@ ENDMETHOD.</source>
 *&quot;* components in the private section</localTypes>
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
+<<<<<<< HEAD
   <interfaceMethod CLSNAME="Z_CL_FILE_READER_EXECUTE_XML" CPDNAME="Z_IF_FILE_READER_EXECUTE~READ_FILE">
    <source>**********************************************************************
 * Author: Bruno Esperança
@@ -1325,16 +1675,140 @@ METHOD z_if_file_reader_execute~read_file.
   IF sy-subrc &lt;&gt; 0.
 * Implement suitable error handling here
 *    What should we do?
+=======
+  <interfaceMethod CLSNAME="Z_CL_FILE_READER_CONV_DATE" CPDNAME="Z_IF_FILE_READER_TYPE_CONV~CONVERT_TYPE">
+   <source>METHOD z_if_file_reader_type_conv~convert_type.
+
+*  Credits for this go to Luís Rocha, greatest
+*  Abapper alive
+
+  DATA:
+        len_date      TYPE i,
+        inv_date(10)  TYPE c,
+        int_date      TYPE sydatum.
+
+  inv_date = im_value.
+
+  len_date = strlen( inv_date ).
+  IF len_date = 8.
+
+*   Check AAAAMMDD format
+    int_date = inv_date.
+    CALL FUNCTION &apos;DATE_CHECK_PLAUSIBILITY&apos;
+      EXPORTING
+        date                      = int_date
+      EXCEPTIONS
+        plausibility_check_failed = 1
+        OTHERS                    = 2.
+    IF sy-subrc &lt;&gt; 0.
+
+*     Check format DDMMAAAA
+      CONCATENATE inv_date+4(4) inv_date+2(2) inv_date+0(2)
+        INTO inv_date.
+      int_date = inv_date.
+      CALL FUNCTION &apos;DATE_CHECK_PLAUSIBILITY&apos;
+        EXPORTING
+          date                      = int_date
+        EXCEPTIONS
+          plausibility_check_failed = 1
+          OTHERS                    = 2.
+      IF sy-subrc &lt;&gt; 0.
+        RAISE EXCEPTION TYPE zcx_conversion_error.
+      ENDIF.
+    ENDIF.
+  ELSE.
+    IF inv_date+2(1) NA &apos;0123456789&apos;.
+
+*     Format DD-MM-AAAA
+      inv_date+2(1) = space.
+      inv_date+5(1) = space.
+      CONDENSE inv_date NO-GAPS.
+      CONCATENATE inv_date+4(4) inv_date+2(2) inv_date+0(2)
+        INTO inv_date.
+    ELSE.
+
+*     Format AAAA-MM-DD
+      inv_date+4(1) = space.
+      inv_date+7(1) = space.
+      CONDENSE inv_date NO-GAPS.
+    ENDIF.
+    int_date = inv_date.
+    CALL FUNCTION &apos;DATE_CHECK_PLAUSIBILITY&apos;
+      EXPORTING
+        date                      = int_date
+      EXCEPTIONS
+        plausibility_check_failed = 1
+        OTHERS                    = 2.
+    IF sy-subrc &lt;&gt; 0.
+      RAISE EXCEPTION TYPE zcx_conversion_error.
+    ENDIF.
+  ENDIF.
+
+  ch_value = inv_date.
+
+ENDMETHOD.</source>
+  </interfaceMethod>
+ </CLAS>
+ <CLAS CLSNAME="Z_CL_FILE_READER_CONV_TEXT" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI: Z_BD_FILE_READER_TYPE_CONV" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="Z_CL_FILE_READER_CONV_TEXT" REFCLSNAME="Z_IF_FILE_READER_TYPE_CONV" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <interfaceMethod CLSNAME="Z_CL_FILE_READER_CONV_TEXT" CPDNAME="Z_IF_FILE_READER_TYPE_CONV~CONVERT_TYPE">
+   <source>METHOD z_if_file_reader_type_conv~convert_type.
+
+*  Genius, isn&apos;t it?
+  ch_value = im_value.
+
+ENDMETHOD.</source>
+  </interfaceMethod>
+ </CLAS>
+ <CLAS CLSNAME="Z_CL_FILE_READER_CONV_NUMBER" VERSION="1" LANGU="E" DESCRIPT="Class for BAdI Impl.: Z_BI_FILE_READER_CONV_NUMBER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="Z_CL_FILE_READER_CONV_NUMBER" REFCLSNAME="Z_IF_FILE_READER_TYPE_CONV" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <interfaceMethod CLSNAME="Z_CL_FILE_READER_CONV_NUMBER" CPDNAME="Z_IF_FILE_READER_TYPE_CONV~CONVERT_TYPE">
+   <source>METHOD z_if_file_reader_type_conv~convert_type.
+
+  CALL FUNCTION &apos;MOVE_CHAR_TO_NUM&apos;
+    EXPORTING
+      chr    = im_value
+    IMPORTING
+      num    = ch_value
+    EXCEPTIONS
+      OTHERS = 4.
+  IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    RAISE EXCEPTION TYPE zcx_conversion_error.
+>>>>>>> origin/master
   ENDIF.
 
 ENDMETHOD.</source>
   </interfaceMethod>
  </CLAS>
+<<<<<<< HEAD
  <INTF CLSNAME="Z_IF_FILE_READER_CONV" VERSION="1" LANGU="E" DESCRIPT="Interface for BAdI: Z_BD_FILE_READER_CONV" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
   <include CLSNAME="Z_IF_FILE_READER_CONV" REFCLSNAME="IF_BADI_INTERFACE" VERSION="1" STATE="1"/>
   <method CLSNAME="Z_IF_FILE_READER_CONV" CMPNAME="CONVERT_FIELD" VERSION="1" LANGU="E" DESCRIPT="Convert field based on rollname" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="Z_IF_FILE_READER_CONV" CMPNAME="CONVERT_FIELD" SCONAME="IM_VALUE" VERSION="1" LANGU="E" DESCRIPT="Unconverted value" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
    <parameter CLSNAME="Z_IF_FILE_READER_CONV" CMPNAME="CONVERT_FIELD" SCONAME="CH_VALUE" VERSION="1" LANGU="E" DESCRIPT="Converted value" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="ANY"/>
+=======
+ <INTF CLSNAME="Z_IF_FILE_READER_COL_TYPE" VERSION="1" LANGU="E" DESCRIPT="Interface for BAdI: Z_BD_FILE_READER_COL_TYPE" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <include CLSNAME="Z_IF_FILE_READER_COL_TYPE" REFCLSNAME="IF_BADI_INTERFACE" VERSION="1" STATE="1"/>
+  <method CLSNAME="Z_IF_FILE_READER_COL_TYPE" CMPNAME="GET_CHAR_REF" VERSION="1" LANGU="E" DESCRIPT="Get char ref for the field type you want to use" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="Z_IF_FILE_READER_COL_TYPE" CMPNAME="GET_CHAR_REF" SCONAME="RE_CHAR_REF" VERSION="1" LANGU="E" DESCRIPT="Runtime Type Services" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR"/>
+>>>>>>> origin/master
   </method>
  </INTF>
  <INTF CLSNAME="Z_IF_FILE_READER_EXECUTE" VERSION="1" LANGU="E" DESCRIPT="Interface for BAdI: Z_BD_FILE_READER_EXECUTE" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
