@@ -38,7 +38,7 @@ TRY .
 
     zcl_file_reader=&gt;read_file(
       EXPORTING
-        im_skip_first_line = abap_true
+        im_first_row = 2
       CHANGING
         ch_table = lt_table
     ).

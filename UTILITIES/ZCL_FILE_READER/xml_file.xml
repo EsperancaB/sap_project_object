@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<record>
+		<MATNR>1</MATNR>
+		<AMOUNT>10</AMOUNT>
+		<UNIT>KG</UNIT>
+		<DATE>10.12.2014</DATE>
+	</record>
+	<record>
+		<MATNR>5</MATNR>
+		<AMOUNT>21</AMOUNT>
+		<UNIT>M2</UNIT>
+		<DATE>01/12/2014</DATE>
+	</record>
+	<record>
+		<MATNR>13</MATNR>
+		<AMOUNT>2</AMOUNT>
+		<UNIT>PAL</UNIT>
+		<DATE>01-11-2014</DATE>
+	</record>
+</data-set>
